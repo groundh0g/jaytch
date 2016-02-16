@@ -1,0 +1,10 @@
+{% for temp in include.data %}
+    {% if forloop.length > 1 %}
+        {% assign isArray=true %}
+    {% elsif include.data[0].size > 0 %}
+        {% assign isArray=true %}
+    {% else %}
+        {% assign isArray=false %}
+    {% endif %}
+    {% break %}
+{% endfor %}

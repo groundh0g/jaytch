@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+{% include jaytch/layout-file.liquid file="head.html" %}
+
+<body role="document">
+
+{% include jaytch/layout-file.liquid file="header.html" %}
+
+<div class="container" role="main">
+    <div class="wrapper">
+        {{ content }}
+    </div>
+</div>
+
+{% include jaytch/layout-file.liquid file="footer.html" %}
+
+</body>
+
+</html>

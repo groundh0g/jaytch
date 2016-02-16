@@ -1,0 +1,1 @@
+{% capture snip_path_layout %}{{ "layouts/~/" | replace: "~", site.jaytch.layout.name }}{{ include.params.file | default: include.file }}{% endcapture %}{% include {{ snip_path_layout }} params=include %}

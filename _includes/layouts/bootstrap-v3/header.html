@@ -1,0 +1,44 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/" title="{{ site.jaytch.tagline }}">{{ site.jaytch.title | default: site.title }}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                {% for pg in site.jaytch.page_links %}
+                    {% include jaytch/is-array.liquid data=pg %}
+                    {% if isArray %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">{{ pg[0] }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                {% for item in pg %}
+                                    {% if item == "---" %}
+                                        <li role="separator" class="divider"></li>
+                                    {% elsif forloop.first == false %}
+                                        {% assign pglnk = item | split: "|" %}
+                                        <li><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                <!--<li><a href="#">Create a Blog in 10 Minutes</a></li>-->
+                                <!--<li><a href="#">Hosting on GitHub Pages</a></li>-->
+                                <!--<li role="separator" class="divider"></li>-->
+                                <!--<li><a href="#">Frequently Asked Questions</a></li>-->
+                            </ul>
+                        </li>
+                    {% else %}
+                        {% assign pglnk = pg | split: "|" %}
+                        <li><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
