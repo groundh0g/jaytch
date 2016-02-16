@@ -24,17 +24,17 @@ jaytch:
   title: Jaytch!             # Your blog or site title.
   tagline: The Jekyll Helper # Your blog or site tagline.
   page_links: [
-    "Blog &amp; News|/blog/",
-    "About|/about/",
-    "Contributors|/contributors/",
+    "Blog &amp; News|/blog",
+    "About|/about",
+    "Contributors|/contributors",
     [ "Documentation", # dropdown label
       # dropdown menu items:
-      "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes/",
-      "Hosting on GitHub Pages|/docs/hosting-on-github-pages/",
-      "Using Author Bios|/docs/using-author-bios/",
-      "Layouts vs. Themes|/docs/layouts-vs-themes/",
+      "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
+      "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
+      "Using Author Bios|/docs/using-author-bios",
+      "Layouts vs. Themes|/docs/layouts-vs-themes",
       "---",
-      "Frequently Asked Questions|/docs/faqs/"
+      "Frequently Asked Questions|/docs/faqs"
     ]
   ]
   layout:
