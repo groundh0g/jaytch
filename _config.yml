@@ -6,24 +6,32 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
+title: Jaytch!             # overridden in  jaytch.title, but some other templates may use this
+tagline: The Jekyll Helper # overridden in  jaytch.tagline, but some other templates may use this
+email: your-email@domain.com # overridden in  jaytch.authors, but some other templates may use this
+description: > # overridden in  jaytch.description, but some other templates may use this
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "/jaytch" # the subpath of your site, e.g. /blog
 url: "http://groundh0g.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: groundh0g # overridden in  jaytch.authors, but some other templates may use this
+github_username:  groundh0g # overridden in  jaytch.authors, but some other templates may use this
 
 # Build settings
 markdown: kramdown
 
 jaytch:
+  version : 0.1.0
+
   title: Jaytch!             # Your blog or site title.
   tagline: The Jekyll Helper # Your blog or site tagline.
-  page_links: [
+  description: > # An awesome description of your blog or site.
+    A rewite of JekyllBootstrap (plusjade/jekyll-bootstrap) that
+    is built from the ground up to support Jekyll 3.x and Bootstrap 3.x,
+    while targeting the dependencies of GitHub Pages.
+
+  nav_links: [ # the main menu links at the top of every page
     "Blog &amp; News|/blog",
     "About|/about",
     "Contributors|/contributors",
@@ -37,6 +45,7 @@ jaytch:
       "Frequently Asked Questions|/docs/faqs"
     ]
   ]
+
   layout:
     name: bootstrap-v3    # default | bootstrap-v3
     minified: true        # Use *.min.css and *.min.js, when available.
@@ -48,7 +57,8 @@ jaytch:
                           #    darkly | flatly | journal | lumen | paper |
                           #    readable | sandstone | simplex | slate |
                           #    spacelab | superhero | united | yeti
-  authors:
+
+  authors: # the "admin" author alias is reserved, used as default when no author is specified
     groundh0g:
       name:       Joseph Hall
       alias:      groundh0g
@@ -86,3 +96,37 @@ jaytch:
       website:    http://plusjade.com/
       twitter:    plusjade
       github:     plusjade
+
+  analytics : # settings for analytics, set 'provider' to the analytics provider you want to use
+    provider : google # Set 'provider' to false to turn analytics off entirely
+    gauges :
+        site_id : 'SITE ID'
+    google :
+        tracking_id : 'UA-123-12'
+    googleLegacy :
+        tracking_id : 'UA-123-12'
+    getclicky :
+      site_id :
+    mixpanel :
+        token : '_MIXPANEL_TOKEN_'
+    baidu :
+        token : '_BAIDU_TOKEN_'
+    piwik :
+        baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
+        idsite : '1'                   # the id of the site on Piwik
+
+  comments : # settings for comments helper, set 'provider' to the comment provider you want to use
+    provider : facebook # Set 'provider' to false to turn commenting off entirely
+    disqus :
+      short_name : myname
+    livefyre :
+      site_id : 123
+    intensedebate :
+      account : 123abc
+    facebook :
+      appid : 123
+      num_posts: 5
+      width: 580
+      colorscheme: light
+    duoshuo :
+      short_name : myname
