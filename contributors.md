@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Contributors
-permalink: /contributors/
 ---
 
 <div class="contributors">
