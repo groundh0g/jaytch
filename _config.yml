@@ -40,23 +40,23 @@ jaytch:
       "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
       "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
       "Using Author Bios|/docs/using-author-bios",
-      "Layouts vs. Themes|/docs/layouts-vs-themes",
+      "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
       "---",
       "Frequently Asked Questions|/docs/faqs"
     ]
   ]
 
   layout:
-    name: bootstrap-v3    # default | bootstrap-v3
-    minified: true        # Use *.min.css and *.min.js, when available.
-    usecdn: false         # Use CDN (content delivery network), when supported.
-    customcss: custom.css # loaded after theme css files
-    customjs:  custom.js  # loaded after theme js files
-    theme: cosmo        # When used by bootstrap-v3, valid values are:
-                          #    none | default | cerulean | cosmo | cyborg |
-                          #    darkly | flatly | journal | lumen | paper |
-                          #    readable | sandstone | simplex | slate |
-                          #    spacelab | superhero | united | yeti
+    minified: true          # Use *.min.css and *.min.js, when available.
+    usecdn: false           # Use CDN (content delivery network), when supported.
+    customcss: custom.css   # loaded after theme css files
+    customjs:  custom.js    # loaded after theme js files
+    framework: bootstrap-v3 # default | bootstrap-v3
+    theme: cosmo            # When used by bootstrap-v3, valid values are:
+                              #    none | default | cerulean | cosmo | cyborg |
+                              #    darkly | flatly | journal | lumen | paper |
+                              #    readable | sandstone | simplex | slate |
+                              #    spacelab | superhero | united | yeti
 
   authors: # the "admin" author alias is reserved, used as default when no author is specified
     groundh0g:
