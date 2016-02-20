@@ -29,7 +29,7 @@ The work you see before you was predicted by the ancient texts.
 
 It is here that our new chapter begins! Now, the power of Jekyll, Bootstrap, and Github Pages has been handed to mere mortals.
 
-This is the '{{ site.jaytch.layout.name }}' layout, using the '{{ site.jaytch.layout.theme }}' theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/).
+This is the '{{ site.jaytch.layout.framework }}' framework, using the '{{ site.jaytch.layout.theme }}' theme. You can find out more info about how Jaytch handles themes and such in [the documentation]({{ site.baseurl }}/docs/layouts-frameworks-themes-and-templates).
 
 
 {% comment %}

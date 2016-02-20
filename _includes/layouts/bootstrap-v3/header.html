@@ -15,7 +15,19 @@
                 {% for pg in site.jaytch.nav_links %}
                     {% include jaytch/util-is-array.liquid data=pg %}
                     {% if isArray %}
-                        <li class="dropdown">
+
+                        {% comment %}
+                            Scan sub-pages to see if any are selected.
+                            FIXME: Is there a better way to do this?
+                        {% endcomment %}
+                        {% assign ACTIVE = "" %}
+                        {% for item in pg %}
+                            {% assign pglnk = item | split: "|" %}
+                            {% assign chkActive = page.url | replace: ".html", "" %}
+                            {% if pglnk[1] == chkActive %}{% assign ACTIVE = "active" %}{% break %}{% endif %}
+                        {% endfor %}
+
+                        <li class="dropdown {{ ACTIVE }}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">{{ pg[0] }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -24,18 +36,18 @@
                                         <li role="separator" class="divider"></li>
                                     {% elsif forloop.first == false %}
                                         {% assign pglnk = item | split: "|" %}
-                                        <li><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
+                                        {% assign chkActive = page.url | replace: ".html", "" %}
+                                        {% capture ACTIVE %}{% if pglnk[1] == chkActive %}active{% endif %}{% endcapture %}
+                                        <li class="{{ ACTIVE }}"><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
                                     {% endif %}
                                 {% endfor %}
-                                <!--<li><a href="#">Create a Blog in 10 Minutes</a></li>-->
-                                <!--<li><a href="#">Hosting on GitHub Pages</a></li>-->
-                                <!--<li role="separator" class="divider"></li>-->
-                                <!--<li><a href="#">Frequently Asked Questions</a></li>-->
                             </ul>
                         </li>
                     {% else %}
                         {% assign pglnk = pg | split: "|" %}
-                        <li><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
+                        {% assign chkActive = page.url | replace: ".html", "" %}
+                        {% capture ACTIVE %}{% if pglnk[1] == chkActive %}active{% endif %}{% endcapture %}
+                        <li class="{{ ACTIVE }}"><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

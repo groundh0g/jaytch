@@ -5,7 +5,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="{{ site.description }}">
     <meta name="author" content="{{ site.twitter_username | default: site.github_username }}">
-    <link rel="icon" href="{{ site.baseurl }}/favicon.ico">
+
+    <link rel="icon" href="{{ site.baseurl }}/favicon/favicon.ico">
+    {% include jaytch/snips/favicon.liquid %}
 
     <title>{{ page.title | default: site.title }}</title>
 
