@@ -5,6 +5,7 @@ title: Contributors
 
 <div class="contributors">
 {% for author in site.jaytch.authors %}
+    {% if author[1].showInList != false %}
     <div class="contributor">
         <img src="{{ site.baseurl }}/assets/{{ author[1].image }}" alt="author[1].name" />
         <div class="meta">
@@ -29,6 +30,7 @@ title: Contributors
             </p>
         </div>
     </div>
+    {% endif %}
 {% endfor %}
 <br/><br/>
 

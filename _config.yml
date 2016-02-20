@@ -58,11 +58,22 @@ jaytch:
                               #    readable | sandstone | simplex | slate |
                               #    spacelab | superhero | united | yeti
 
-  authors: # the "admin" author alias is reserved, used as default when no author is specified
+  authors:
+    admin:        # the "admin" author alias is reserved, used as default when no author is specified
+      name:       Administrator
+      alias:      admin
+      showInList: true # you can hide this little guy
+      image:      images/contributors/admin.png
+      role:       Filth-Dimensional Being
+      bio: > # brief description goes here
+        The "admin" alias is a reserved account, used as default when no author is specified.
+      email:      hello@jaytch.org
+      website:    http://jaytch.org/
+      twitter:    GetJaytch
     groundh0g:
       name:       Joseph Hall
       alias:      groundh0g
-      image:      images/groundh0g.png
+      image:      images/contributors/groundh0g.png
       role:       Programmer / Writer
       bio: > # brief description goes here
         Joe lives with his wife and three daughters in Newnan, Georgia. Every
@@ -84,7 +95,7 @@ jaytch:
     plusjade:
       name:       Jade Dominguez
       alias:      plusjade
-      image:      images/plusjade.jpg
+      image:      images/contributors/plusjade.jpg
       role:       Programmer
       bio: > # brief description goes here
         I owe everything I know to the Open Source community so all my work is
