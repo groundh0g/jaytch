@@ -46,6 +46,9 @@ jaytch:
     ]
   ]
 
+  # FIXME: not yet implemented ... (always badge)
+  page_404: badge # one of: default | badge | tweet | ...
+
   layout:
     minified: true          # Use *.min.css and *.min.js, when available.
     usecdn: false           # Use CDN (content delivery network), when supported.
@@ -53,23 +56,19 @@ jaytch:
     customjs:  custom.js    # loaded after theme js files
     framework: bootstrap-v3 # default | bootstrap-v3
     theme: cosmo            # When used by bootstrap-v3, valid values are:
-                              #    none | default | cerulean | cosmo | cyborg |
+                              #    default | cerulean | cosmo | cyborg |
                               #    darkly | flatly | journal | lumen | paper |
                               #    readable | sandstone | simplex | slate |
                               #    spacelab | superhero | united | yeti
+    # FIXME: not yet implemented ...
+    template: blog         # When used by bootstrap-v3, valid values are:
+                              #    blog    - what 99% of folks will use
+                              #    blog365 - a post-a-day site
+                              #    book    - an open-source book
+                              #    project - a project or product site
+                              #    soon    - a "coming soon" site
 
   authors:
-    admin:        # the "admin" author alias is reserved, used as default when no author is specified
-      name:       Administrator
-      alias:      admin
-      showInList: true # you can hide this little guy
-      image:      images/contributors/admin.png
-      role:       Filth-Dimensional Being
-      bio: > # brief description goes here
-        The "admin" alias is a reserved account, used as default when no author is specified.
-      email:      hello@jaytch.org
-      website:    http://jaytch.org/
-      twitter:    GetJaytch
     groundh0g:
       name:       Joseph Hall
       alias:      groundh0g
@@ -107,6 +106,19 @@ jaytch:
       website:    http://plusjade.com/
       twitter:    plusjade
       github:     plusjade
+    # FIXME: actually use admin alias as default in posts (and pages?)
+    admin:        # the "admin" author alias is reserved, used as default when no author is specified
+      name:       Administrator
+      alias:      admin
+      showInList: true # you can hide this little guy
+      image:      images/contributors/admin.png
+      role:       Filth-Dimensional Being
+      bio: > # brief description goes here
+        The "admin" alias is a reserved account, used as default when no author is specified.<br/>
+        You can hide this account by adding "showInList: false" to the "_config.yml" file.
+      email:      hello@jaytch.org
+      website:    http://jaytch.org/
+      twitter:    GetJaytch
 
   analytics : # settings for analytics, set 'provider' to the analytics provider you want to use
     provider : google # Set 'provider' to false to turn analytics off entirely
