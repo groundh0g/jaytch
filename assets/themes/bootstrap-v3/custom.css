@@ -47,3 +47,9 @@ body {
 .footer h3 {
     font-weight: bold;
 }
+
+/* Search highligher */
+
+.searchHit {
+    background-color: yellow;
+}

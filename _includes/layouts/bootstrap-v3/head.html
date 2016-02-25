@@ -11,6 +11,8 @@
 
     <title>{{ page.title | default: site.title }}</title>
 
+    <script type="text/javascript">var BASE_URL = "{{ site.baseurl }}";</script>
+
     {% if site.jaytch.layout.minified %}
         <!-- Bootstrap core CSS -->
         <link href="{% include jaytch/asset-path.liquid file='css/bootstrap~min~.css' %}" rel="stylesheet">

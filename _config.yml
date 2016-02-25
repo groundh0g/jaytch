@@ -21,6 +21,7 @@ github_username:  groundh0g # overridden in  jaytch.authors, but some other temp
 # Build settings
 markdown: kramdown
 
+# Jaytch settings
 jaytch:
   version : 0.1.0
 
@@ -48,6 +49,14 @@ jaytch:
 
   # FIXME: not yet implemented ... (always badge)
   page_404: badge # one of: default | badge | tweet | ...
+
+  search: # valid values are: true | false | {number}
+    title:     true # always search
+    tags:      true # always search
+    keywords:  true # always search
+    excerpt:   2000 # only search when fewer than 2001 posts
+    # FIXME: not yet implemented ...
+    inclPages: true # valid values are: true | false
 
   layout:
     minified: true          # Use *.min.css and *.min.js, when available.

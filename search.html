@@ -1,0 +1,53 @@
+---
+layout: page
+title: Search Results
+---
+
+<div id="searchResultsDiv"></div>
+
+<script type="text/javascript">
+    var whenDocumentReady = whenDocumentReady || function() {};
+    var whenSearchTermsReady = function() {
+        var searchText = QueryString["txtSearch"];
+        if(searchText) {
+            $.each(typeaheadHandler.getData(searchText), function(index, post) {
+                var regex = new RegExp(searchText, "gi");
+                var div = $("<div/>");
+                var header = null;
+                var excerpt = null;
+                var tags = null;
+
+                if(post.title) {
+                    header = $("<h3/>")
+                            .css("font-weight", "bold")
+                            .html(post.title.replace(regex, "<span class='searchHit'>$&</span>"));
+                } else {
+                    header = $("<h3/>")
+                            .css("font-weight", "bold")
+                            .text("{Title Unknown}");
+                }
+                var date = $("<p/>")
+                        .css("font-weight","bold")
+                        .text(new Date(typeaheadHandler.getData("introducing")[0].date).toString().substr(0,15));
+                if(post.excerpt) {
+                    excerpt = $("<p/>")
+                            .html(post.excerpt.replace(regex, "<span class='searchHit'>$&</span>"));
+                }
+                if(post.tags) {
+                    var tagsText = post.tags.split(",").sort().join(", ");
+                    tags = $("<p/>")
+                            .html("<b>Tags:</b> " + tagsText.replace(regex, "<span class='searchHit'>$&</span>"));
+                }
+                var link = $("<p/>").html("<a href='" + post.url + "'>View Post &raquo;</a>");
+
+                $("#searchResultsDiv").append($("<div/>")
+                        .append(header  || $("<span/>"))
+                        .append(date    || $("<span/>"))
+                        .append(excerpt || $("<span/>"))
+                        .append(tags    || $("<span/>"))
+                        .append(link)
+                );
+            });
+        }
+    }
+</script>

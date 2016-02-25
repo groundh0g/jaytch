@@ -1,0 +1,8 @@
+{% include jaytch/snips/search-init.liquid %}{% if inclTitle or inclTags or inclKeywords or inclExcerpt %}
+<form class="navbar-form navbar-right" role="xsearch" action="{{ site.baseurl }}/search.html">
+    <div class="form-group">
+        <input id="txtSearch" name="txtSearch" type="text" class="typeahead form-control" autocomplete="off" spellcheck="false" placeholder="Search Posts" data-provide="typeahead" />
+    </div>
+    <input id="cmdSearch" class="btn btn-default" type="submit" value="Go!">
+</form>
+{% endif %}

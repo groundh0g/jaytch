@@ -1,0 +1,10 @@
+{% include jaytch/snips/search-init.liquid %}{% if inclTitle or inclTags or inclKeywords or inclExcerpt %}
+<script type="text/javascript">
+    var whenDocumentReady = whenDocumentReady || function (){};
+    var whenSearchTermsReady = whenSearchTermsReady || function (){};
+    $(document).ready(whenDocumentReady);
+</script>
+<script src="{{ site.baseurl }}/assets/script/search/bootstrap3-typeahead.min.js"></script>
+<script src="{{ site.baseurl }}/assets/script/search/polyfill.js"></script>
+<script src="{{ site.baseurl }}/assets/script/search/bootstrap3-search.js"></script>
+{% endif %}

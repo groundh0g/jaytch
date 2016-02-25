@@ -1,0 +1,6 @@
+[
+{% include jaytch/snips/search-init.liquid %}{% if inclTitle or inclTags or inclKeywords or inclExcerpt %}
+{% for post in include.posts | default: site.posts %}
+  { "date" : "{{ post.date }}", "title" : "{% if inclTitle %}{{ post.title }}{% endif %}", "tags" : "{% if inclTags %}{{ post.tags }}{% endif %}", "keywords" : "{% if inclKeywords %}{{ post.keywords | default: '' }}{% endif %}", "excerpt" : "{% if inclExcerpt %}{{ post.excerpt | strip_html | strip }}{% endif %}", "url" : "{{ site.baseurl }}{{ post.url }}" }{% unless forloop.last %},{% endunless %}{% endfor %}
+{% endif %}
+]
