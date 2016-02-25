@@ -8,7 +8,7 @@ title: Search Results
 <script type="text/javascript">
     var whenDocumentReady = whenDocumentReady || function() {};
     var whenSearchTermsReady = function() {
-        var searchText = QueryString["txtSearch"];
+        var searchText = decodeURIComponent(QueryString["txtSearch"] || "").split("+").join(" ");
         if(searchText) {
             $.each(typeaheadHandler.getData(searchText), function(index, post) {
                 var regex = new RegExp(searchText, "gi");
