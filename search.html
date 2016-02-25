@@ -38,7 +38,9 @@ title: Search Results
                     tags = $("<p/>")
                             .html("<b>Tags:</b> " + tagsText.replace(regex, "<span class='searchHit'>$&</span>"));
                 }
-                var link = $("<p/>").html("<a href='" + post.url + "'>View Post &raquo;</a>");
+                var link = $("<p/>").html("<a href='" + post.url + "'>View " +
+                        (post.isPost ? "Post" : "Page") +
+                        " &raquo;</a>");
 
                 $("#searchResultsDiv").append($("<div/>")
                         .append(header  || $("<span/>"))
