@@ -10,6 +10,7 @@ title: Search Results
     var whenSearchTermsReady = function() {
         var searchText = decodeURIComponent(QueryString["txtSearch"] || "").split("+").join(" ");
         if(searchText) {
+            $("#txtSearch").val(searchText);
             $.each(typeaheadHandler.getData(searchText), function(index, post) {
                 var regex = new RegExp(searchText, "gi");
                 var div = $("<div/>");
