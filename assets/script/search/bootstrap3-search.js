@@ -10,11 +10,14 @@ function TypeaheadHandler(inputId, data) {
             field = (field || "title");
             var fields = field.split('|');
             for (var i = 0; i < postData.length; i++) {
-                if(fields.some(function(element, index, array){ return postData[i][element].toLowerCase().includes(value); })) {
+                var match =
+                    fields.some(function(element, index, array) {
+                        var fieldText = $('<div/>').html(postData[i][element].toLowerCase()).text();
+                        return fieldText.includes(value);
+                    });
+                if(match) {
                     matches.push(postData[i]);
-                    if (firstOnly) {
-                        break;
-                    }
+                    if (firstOnly) { break; }
                 }
             }
         }
@@ -33,7 +36,7 @@ function TypeaheadHandler(inputId, data) {
         $input.typeahead({
             autoSelect: false,
             source: data,
-            displayText: function(item) { return item.title; },
+            displayText: function(item) { return $('<div/>').html(item.title).text(); },
             matcher: function(post) {
                 var text = (this.query || "").toLowerCase();
                 var match =

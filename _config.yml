@@ -55,7 +55,6 @@ jaytch:
     tags:      true # always search
     keywords:  true # always search
     excerpt:   2000 # only search when fewer than 2001 posts
-    # FIXME: not yet implemented ...
     inclPages: true # valid values are: true | false
 
   layout:

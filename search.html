@@ -19,17 +19,21 @@ title: Search Results
                 var tags = null;
 
                 if(post.title) {
+                    var title = $("<div/>").html(post.title).text();
                     header = $("<h3/>")
                             .css("font-weight", "bold")
-                            .html(post.title.replace(regex, "<span class='searchHit'>$&</span>"));
+                            .html(title.replace(regex, "<span class='searchHit'>$&</span>"));
                 } else {
                     header = $("<h3/>")
                             .css("font-weight", "bold")
                             .text("{Title Unknown}");
                 }
-                var date = $("<p/>")
+                var date = $("<span/>");
+                if(post.date) {
+                    date = $("<p/>")
                         .css("font-weight","bold")
-                        .text(new Date(typeaheadHandler.getData("introducing")[0].date).toString().substr(0,15));
+                        .text(new Date(post.date.substr(0,10)).toString().substr(0,15));
+                }
                 if(post.excerpt) {
                     excerpt = $("<p/>")
                             .html(post.excerpt.replace(regex, "<span class='searchHit'>$&</span>"));
