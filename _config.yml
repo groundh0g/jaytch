@@ -32,21 +32,6 @@ jaytch:
     is built from the ground up to support Jekyll 3.x and Bootstrap 3.x,
     while targeting the dependencies of GitHub Pages.
 
-#  nav_links: [ # the main menu links at the top of every page
-#    "Blog &amp; News|/blog",
-#    "About|/about",
-#    "Contributors|/contributors",
-#    [ "Documentation", # dropdown label
-#      # dropdown menu items:
-#      "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
-#      "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
-#      "Using Author Bios|/docs/using-author-bios",
-#      "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
-#      "---",
-#      "Frequently Asked Questions|/docs/faqs"
-#    ]
-#  ]
-
   # FIXME: not yet implemented ... (always badge)
   page_404: badge # one of: default | badge | tweet | ...
 
