@@ -14,7 +14,8 @@ description: > # overridden in  jaytch.description, but some other templates may
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://groundh0g.github.io" # the base hostname & protocol for your site
+# FIXME: url: "http://groundh0g.github.io" # the base hostname & protocol for your site
+url: "http://jaytch.org" # the base hostname & protocol for your site
 twitter_username: groundh0g # overridden in  jaytch.authors, but some other templates may use this
 github_username:  groundh0g # overridden in  jaytch.authors, but some other templates may use this
 
@@ -32,8 +33,9 @@ jaytch:
     is built from the ground up to support Jekyll 3.x and Bootstrap 3.x,
     while targeting the dependencies of GitHub Pages.
 
-  # FIXME: not yet implemented ... (always badge)
-  page_404: badge # one of: default | badge | tweet | ...
+  page_404: tweet # one of: badge | shrug | tweet | search | milk ...
+  tweetHash:     "jaytch #blogs #OSS" # don't hash first tag
+  tweetShoutOut: "GetJaytch"
 
   search: # valid values are: true | false | {number}
     title:     true # always search
