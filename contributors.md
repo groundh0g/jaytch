@@ -26,6 +26,7 @@ title: Contributors
                 {% if author[1].instagram %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://instagram.com/{{ author[1].instagram }}"><i class="fa fa-instagram"></i>&nbsp;{{ author[1].instagram }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
                 {% if author[1].googleplus %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://googleplus.com/{{ author[1].googleplus }}"><i class="fa fa-google-plus"></i>&nbsp;{{ author[1].googleplus }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
                 {% if author[1].linkedin %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://linkedin.com/in/{{ author[1].linkedin }}"><i class="fa fa-linkedin"></i>&nbsp;{{ author[1].linkedin }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].pinterest %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://pinterest.com/{{ author[1].pinterest }}"><i class="fa fa-pinterest"></i>&nbsp;{{ author[1].pinterest }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
                 {% unless hasSocialMediaIcon %}No links specified.{% endunless %}
             </p>
         </div>

@@ -32,20 +32,20 @@ jaytch:
     is built from the ground up to support Jekyll 3.x and Bootstrap 3.x,
     while targeting the dependencies of GitHub Pages.
 
-  nav_links: [ # the main menu links at the top of every page
-    "Blog &amp; News|/blog",
-    "About|/about",
-    "Contributors|/contributors",
-    [ "Documentation", # dropdown label
-      # dropdown menu items:
-      "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
-      "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
-      "Using Author Bios|/docs/using-author-bios",
-      "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
-      "---",
-      "Frequently Asked Questions|/docs/faqs"
-    ]
-  ]
+#  nav_links: [ # the main menu links at the top of every page
+#    "Blog &amp; News|/blog",
+#    "About|/about",
+#    "Contributors|/contributors",
+#    [ "Documentation", # dropdown label
+#      # dropdown menu items:
+#      "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
+#      "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
+#      "Using Author Bios|/docs/using-author-bios",
+#      "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
+#      "---",
+#      "Frequently Asked Questions|/docs/faqs"
+#    ]
+#  ]
 
   # FIXME: not yet implemented ... (always badge)
   page_404: badge # one of: default | badge | tweet | ...
@@ -69,12 +69,59 @@ jaytch:
                               #    readable | sandstone | simplex | slate |
                               #    spacelab | superhero | united | yeti
     # FIXME: not yet implemented ...
-    template: blog         # When used by bootstrap-v3, valid values are:
-                              #    blog    - what 99% of folks will use
-                              #    blog365 - a post-a-day site
-                              #    book    - an open-source book
-                              #    project - a project or product site
-                              #    soon    - a "coming soon" site
+    template:
+      provider: project     # When used by bootstrap-v3, valid values are:
+                              #    blog       - what 99% of folks will use
+                              #    blog365    - a post-a-day site
+                              #    book       - an open-source book
+                              #    project    - a project or product site
+                              #    soon       - a "coming soon" site
+      blog:
+        nav_links: [ # the main menu links at the top of every page
+          "Archive|/archive",
+          "Categories|/categories",
+          "Tags|/tags",
+          "Contributors|/contributors",
+          "About|/about"
+        ]
+      blog365:
+        nav_links: [ # the main menu links at the top of every page
+          "Archive|/archive",
+          "Tags|/tags",
+          "Gallery|/gallery",
+          "Commer¢e|/store"
+        ]
+      book:
+        nav_links: [ # the main menu links at the top of every page
+          "The Book|/index",
+          "The Author|/author",
+          "The Camps|/contributors",
+          "The Blog|/blog",
+          "The Store|/store"
+        ]
+      project:
+        nav_links: [ # the main menu links at the top of every page
+          "Blog &amp; News|/blog",
+          "About|/about",
+          "Contributors|/contributors",
+          [ "Documentation", # dropdown label
+            # dropdown menu items:
+            "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
+            "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
+            "Using Author Bios|/docs/using-author-bios",
+            "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
+            "---",
+            "Frequently Asked Questions|/docs/faqs"
+          ]
+        ]
+      soon:
+        nav_links: [ # the main menu links at the top of every page
+          "Blog &amp; News|/blog",
+          "The Team|/contributors",
+          "About|/about",
+          "Contact Us|/contact"
+        ]
+
 
   authors:
     groundh0g:
@@ -95,10 +142,11 @@ jaytch:
       facebook:   groundh0g
       youtube:    groundh0g
       instagram:  groundh0g72
-      googleplus: groundh0g
+      #googleplus: groundh0g
       github:     groundh0g
       deviant:    groundh0g
       linkedin:   groundh0g
+      pinterest:  groundh0g
     plusjade:
       name:       Jade Dominguez
       alias:      plusjade

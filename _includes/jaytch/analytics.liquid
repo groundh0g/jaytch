@@ -2,7 +2,7 @@
 
 {% if isProduction and site.jaytch.analytics.provider and page.jaytch.analytics %}
 
-{% case site.jaytch.analytics.provider.liquid %}
+{% case site.jaytch.analytics.provider %}
 {% when "gauges" %}
   {% include jaytch/analytics/gauges.liquid %}
 {% when "google" %}

@@ -12,7 +12,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                {% for pg in site.jaytch.nav_links %}
+                {% assign navLinks = site.jaytch.layout.template[site.jaytch.layout.template.provider].nav_links %}
+                {% for pg in navLinks %}
                     {% include jaytch/util-is-array.liquid data=pg %}
                     {% if isArray %}
 

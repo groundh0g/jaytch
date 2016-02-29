@@ -1,0 +1,34 @@
+{% assign posts = include.posts | default: site.posts %}
+{% assign limit = include.limit | default: 20 %}
+{% assign showArchiveLink = include.showArchiveLink | default: true %}
+{% assign archiveUrl = include.archiveUrl | default: "/archive" %}
+
+{% for post in posts limit limit %}
+
+<div class="postSummary">
+<h2>{{ post.title }} <br/><small>{{ post.date | date: "%B %e, %Y" }}</small></h2>
+<p>{{ post.content | strip_html | truncatewords: 75 }}</p>
+<p><a href="{{ site.baseurl }}{{ post.url }}">View Post &raquo;</a></p>
+</div>
+
+{% endfor %}
+
+{% if showArchiveLink %}
+
+{% if site.posts.size > limit %}
+
+## Post Archive
+
+There are {{ posts.size }} posts for this site. The first {{ limit}} are shown above.
+Click <a href="{{ site.baseurl }}{{ archiveUrl }}">here</a> to view the archive.
+
+{% else %}
+
+## Post Archive
+
+All {{ posts.size }} post(s) for this site are shown above.
+Click <a href="{{ site.baseurl }}{{ archiveUrl }}">here</a> to view the archive.
+
+{% endif %}
+
+{% endif %}
