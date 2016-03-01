@@ -9,7 +9,7 @@ Jaytch tries to maximize reuse by splitting layouts into three components:
 1. The **Theme** -- customized CSS, often specific to a framework.
 1. The **Template** -- framework-specific site scaffolding.
 
-![Layout Components]({{ site.baseurl }}/assets/images/jaytch-model.png)
+![Layout Components]({{ site.baseurl }}/docs/images/jaytch-model.png)
 
 In general, site *templates* are heavily coupled with a specific site *framework*, which can use a variety of site *themes*.
 
