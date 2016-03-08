@@ -33,7 +33,7 @@ jaytch:
     is built from the ground up to support Jekyll 3.x and Bootstrap 3.x,
     while targeting the dependencies of GitHub Pages.
 
-  page_404: sticky # one of: badge | droids | glass | link | milk | potty | shrug | sticky | tweet | zork
+  page_404: sticky # badge | dog | droids | glass | link | milk | monster | potty | shrug | sticky | tweet | zork
   tweetHash:     "jaytch #blogs #OSS" # don't hash first tag
   tweetShoutOut: "GetJaytch"
 
@@ -94,10 +94,11 @@ jaytch:
           [ "Documentation", # dropdown label
             # dropdown menu items:
             "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
-            "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
-            "Using Author Bios|/docs/using-author-bios",
+            "Configuration Settings Explained|/docs/configuration-settings-explained",
             "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
             "Specifying a 404 Page|/docs/specifying-a-404-page",
+            "Using Author Bios|/docs/using-author-bios",
+            "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
             "---",
             "Frequently Asked Questions|/docs/faqs"
           ]
