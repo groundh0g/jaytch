@@ -1,8 +1,8 @@
 <div style="text-align:center;">
 
-<h2>Man. That's Rough!</h2>
+<h2>Man, That's Rough!</h2>
 
-<p>The dog ate the page you requested. We're trying to retrieve it now.</p>
+<p>Our dog ate the page you requested. We're trying to retrieve it now.</p>
 
 <p>While you wait, click one of the links at the top of the page.</p>
 

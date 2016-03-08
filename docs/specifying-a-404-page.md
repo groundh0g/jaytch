@@ -7,40 +7,76 @@ I hate the default, unstyled 404 page that Jekyll provides. So, I made some plac
 
 ## Badge
 
-![Badge 404]({{ site.baseurl }}/docs/images/404-badge.png)
+<hr/>
+{% include boilerplate/404/badge.md %}
+<hr/>
+
+## Dog
+
+<hr/>
+{% include boilerplate/404/dog.md %}
+<hr/>
 
 ## Droids
 
-![Droids 404]({{ site.baseurl }}/docs/images/404-droids.png)
+<hr/>
+{% include boilerplate/404/droids.md %}
+<hr/>
 
 ## Glass
 
-![Glass 404]({{ site.baseurl }}/docs/images/404-glass.png)
+<hr/>
+{% include boilerplate/404/glass.md %}
+<hr/>
 
 ## Link
 
-![Link 404]({{ site.baseurl }}/docs/images/404-link.png)
+<hr/>
+{% include boilerplate/404/link.md %}
+<hr/>
 
 ## Milk
 
-![Milk 404]({{ site.baseurl }}/docs/images/404-milk.png)
+<hr/>
+{% include boilerplate/404/milk.md %}
+<hr/>
+
+## Monster
+
+<hr/>
+{% include boilerplate/404/monster.md %}
+<hr/>
 
 ## Potty
 
-![Potty 404]({{ site.baseurl }}/docs/images/404-potty.png)
+<hr/>
+{% include boilerplate/404/potty.md %}
+<hr/>
 
 ## Shrug
 
-![Shrug 404]({{ site.baseurl }}/docs/images/404-shrug.png)
+<hr/>
+{% include boilerplate/404/shrug.md %}
+<br/><br/><br/><br/>
+<hr/>
 
 ## Sticky
 
-![Sticky 404]({{ site.baseurl }}/docs/images/404-sticky.png)
+<hr/>
+{% include boilerplate/404/sticky.md %}
+<hr/>
 
 ## Tweet
 
-![Tweet 404]({{ site.baseurl }}/docs/images/404-tweet.png)
+<hr/>
+<br/><br/><br/>
+
+{% include boilerplate/404/tweet.md %}
+<br/><br/><br/><br/>
+<hr/>
 
 ## Zork
 
-![Zork 404]({{ site.baseurl }}/docs/images/404-zork.png)
+<hr/>
+{% include boilerplate/404/zork.md %}
+<hr/>

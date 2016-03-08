@@ -1,6 +1,6 @@
 <div style="text-align:center;">
 
-<h2>Great Scott!</h2>
+<h2>Game Over!</h2>
 
 <p>This is terrible! You have discovered a dead link.</p>
 
