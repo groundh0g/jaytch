@@ -17,17 +17,17 @@
 
 {% if site.posts.size > limit %}
 
-## Post Archive
+<h2>Post Archive</h2>
 
-There are {{ posts.size }} posts for this site. The first {{ limit }} are shown above.
-Click <a href="{{ site.baseurl }}{{ archiveUrl }}">here</a> to view the archive.
+<p>There are {{ posts.size }} posts for this site. The first {{ limit }} are shown above.<br/>
+Click <a href="{{ site.baseurl }}{{ archiveUrl }}">here</a> to view the archive.</p>
 
 {% else %}
 
-## Post Archive
+<h2>Post Archive</h2>
 
-All {{ posts.size }} post(s) for this site are shown above.
-Click <a href="{{ site.baseurl }}{{ archiveUrl }}">here</a> to view the archive.
+<p>All {{ posts.size }} post(s) for this site are shown above.<br/>
+Click <a href="{{ site.baseurl }}{{ archiveUrl }}">here</a> to view the archive.</p>
 
 {% endif %}
 

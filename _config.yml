@@ -50,19 +50,19 @@ jaytch:
     customcss: custom.css   # loaded after theme css files
     customjs:  custom.js    # loaded after theme js files
     framework: bootstrap-v3 # default | bootstrap-v3
-    theme: cosmo            # When used by bootstrap-v3, valid values are:
+    theme: default            # When used by bootstrap-v3, valid values are:
                               #    default | cerulean | cosmo | cyborg |
                               #    darkly | flatly | journal | lumen | paper |
                               #    readable | sandstone | simplex | slate |
                               #    spacelab | superhero | united | yeti
-    # FIXME: not yet implemented ...
     template:
       provider: project     # When used by bootstrap-v3, valid values are:
                               #    blog       - what 99% of folks will use
-                              #    blog365    - a post-a-day site
                               #    book       - an open-source book
+                              #    humor      - a post-a-day site
                               #    project    - a project or product site
                               #    soon       - a "coming soon" site
+                              #    webapp     - a web application, wrapped with a blog
       blog:
         nav_links: [ # the main menu links at the top of every page
           "Archive|/archive",
@@ -70,13 +70,6 @@ jaytch:
           "Tags|/tags",
           "Contributors|/contributors",
           "About|/about"
-        ]
-      blog365:
-        nav_links: [ # the main menu links at the top of every page
-          "Archive|/archive",
-          "Tags|/tags",
-          "Gallery|/gallery",
-          "Commer¢e|/store"
         ]
       book:
         nav_links: [ # the main menu links at the top of every page
@@ -86,7 +79,17 @@ jaytch:
           "The Blog|/blog",
           "The Store|/store"
         ]
+      humor:
+        nav_links: [ # the main menu links at the top of every page
+          "Archive|/archive",
+          "Tags|/tags",
+          "Gallery|/gallery",
+          "Commer¢e|/store"
+        ]
       project:
+        title: BYRD
+        tagline: Give'm the BYRD!
+        nav_inverse: true
         nav_links: [ # the main menu links at the top of every page
           "Blog &amp; News|/blog",
           "About|/about",

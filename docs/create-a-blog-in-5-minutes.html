@@ -24,7 +24,7 @@ showTitle: false
     <tr>
         <td><strong>GitHub Site:</strong>&nbsp;</td>
         <td>
-            <input id="txtGitHubUrlSite" type="text" size="70" placeholder="https://username.github.io/repository/subdirectory" readonly="true" style="background-color:#ffe;" />
+            <input id="txtGitHubUrlSite" type="text" size="70" placeholder="https://username.github.io/repository/subdirectory" readonly="true" style="background-color:#ffc;" />
             <i class="fa fa-question-circle" title="This is where your site will be hosted. This field is updated as you enter your information."></i>
         </td>
     </tr>
@@ -306,11 +306,11 @@ git foo bar
 
             var firstWizPage = index === 1;
             $("#txtGitHubUrlRepo").prop("readonly", !firstWizPage);
-            $("#txtGitHubUrlRepo").css("background-color", firstWizPage ? "inherit" : "#ffe");
+            $("#txtGitHubUrlRepo").css("background-color", firstWizPage ? "#fff" : "#ffc");
             $("#txtGitHubUrlBase").prop("readonly", !firstWizPage);
-            $("#txtGitHubUrlBase").css("background-color", firstWizPage ? "inherit" : "#ffe");
+            $("#txtGitHubUrlBase").css("background-color", firstWizPage ? "#fff" : "#ffc");
             $("#txtGitHubUrlCName").prop("readonly", !firstWizPage);
-            $("#txtGitHubUrlCName").css("background-color", firstWizPage ? "inherit" : "#ffe");
+            $("#txtGitHubUrlCName").css("background-color", firstWizPage ? "#fff" : "#ffc");
         };
 
         wizStepShow(1);
@@ -323,7 +323,7 @@ git foo bar
                     var $user = $("#txtGitHubUser");
                     var user = $user.val() || "";
                     if(user) {
-                        $user.css("background-color", "inherit");
+                        $user.css("background-color", "#fff");
                     } else {
                         $user.css("background-color", "#fee");
                         $user.focus();
@@ -512,7 +512,7 @@ git foo bar
             if(user) {
                 $("#txtGitHubUrlRepo").val("https://github.com/" + user + (repo ? "/" + repo : ".github.io"));
                 $("#txtGitHubUrlSite").val("https://" + user + ".github.io/" + repo + (repo && base ? "/" + base : ""));
-                $user.css("background-color", "inherit");
+                $user.css("background-color", "#fff");
             } else {
                 $("#txtGitHubUrlRepo").val("");
                 $("#txtGitHubUrlSite").val("");
@@ -525,7 +525,7 @@ git foo bar
         $("#txtGitHubBase").keyup(updateGitHubUserOrRepoOrBase);
 
         $("#txtGitHubUser").change(function() {
-            $(this).css("background-color", "inherit");
+            $(this).css("background-color", "#fff");
             $("#lblInitGitHubUser").text($(this).val());
         });
         

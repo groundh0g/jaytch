@@ -11,4 +11,4 @@ comments: none
 This is the blog page.
 {% endcomment %}
 
-{% include boilerplate/blog.md %}
+{% include_relative templates/blog.md %}

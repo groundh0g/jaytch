@@ -7,21 +7,23 @@ showTitle: false
 {% case site.jaytch.layout.template.provider %}
 
 {% when 'blog' %}
-{% include boilerplate/blog.md %}
-
-{% when 'blog365' %}
-{% include boilerplate/blog365.md %}
+{% include_relative templates/blog.md %}
 
 {% when 'book' %}
-{% include boilerplate/book.md %}
+{% include_relative templates/book.md %}
+
+{% when 'humor' %}
+{% include_relative templates/humor.md %}
 
 {% when 'project' %}
-{% include boilerplate/project.md %}
+{% include_relative templates/project.html %}
 
 {% when 'soon' %}
-{% include boilerplate/soon.md title="Latest News" %}
+{% include_relative templates/soon.md title="Latest News" %}
 
 {% else %}
-{% include boilerplate/blog.md %}
+{% include_relative templates/blog.md %}
 
 {% endcase %}
+
+&nbsp;
