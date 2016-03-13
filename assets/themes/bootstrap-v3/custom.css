@@ -19,6 +19,25 @@ div.contributor div.meta {
     margin-left: 171px;
 }
 
+/* Sidebars */
+
+div.sidebar {
+    color: #888;
+}
+
+div.sidebar div.postSummary .title {
+    font-size:1.5em;
+    font-weight:bold;
+}
+
+div.sidebar div.postSummary .title small {
+    font-size:0.75em;
+    font-weight:normal;
+}
+
+div.sidebar div.postSummary .text {
+}
+
 /* Sticky footer styles */
 
 html {

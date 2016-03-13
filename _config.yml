@@ -106,6 +106,16 @@ jaytch:
             "Frequently Asked Questions|/docs/faqs"
           ]
         ]
+        sidebar_left:
+          sidebars: false # false | ["facebook", "twitter"]
+          columns:  3
+          hideForPage: true
+          hideForPost: false
+        sidebar_right:
+          sidebars: ["posts", "twitter"] # false | ["facebook", "twitter"]
+          columns:  3
+          hideForPage: true
+          hideForPost: false
       soon:
         nav_links: [ # the main menu links at the top of every page
           "Blog &amp; News|/blog",
@@ -114,6 +124,25 @@ jaytch:
           "Contact Us|/contact"
         ]
 
+    sidebars:
+      facebook:
+        page:  Fauxcabulary
+        title: Fauxcabulary.org
+      facebook2:
+        type:  facebook
+        page:  Codetopia
+      twitter:
+        name:     GetJaytch
+        widgetId: 709112005668503552
+      googleplus:
+        type:  googleplus
+        blah:
+      tagcloud:
+        type:  tagcloud
+      author:
+        type:  author
+      posts:
+        type:  posts
 
   authors:
     groundh0g:
