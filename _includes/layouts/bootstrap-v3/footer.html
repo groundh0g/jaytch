@@ -42,3 +42,15 @@
 
 <script src="{{ site.baseurl }}/assets/script/queryString.js"></script>
 {% include jaytch/snips/search-script.liquid %}
+
+<script src="{{ site.baseurl }}/assets/script/googleplusfeed2/jquery.kyco.googleplusfeed2.min.js"></script>
+<script type="text/javascript">
+    // init google plus sidebar widget(s), if any are present
+    $(document).ready(function(){
+        $('.googleplusfeed').each(function(){
+            var id = $(this).text();
+            $(this).text("");
+            $(this).kycoGooglePlusFeed2(id);
+        });
+    });
+</script>

@@ -112,7 +112,7 @@ jaytch:
           hideForPage: true
           hideForPost: false
         sidebar_right:
-          sidebars: ["posts", "twitter"] # false | ["facebook", "twitter"]
+          sidebars: ["posts", "twitter", "googleplus"] # false | ["facebook", "twitter"]
           columns:  3
           hideForPage: true
           hideForPost: false
@@ -125,18 +125,17 @@ jaytch:
         ]
 
     sidebars:
-      facebook:
-        page:  Fauxcabulary
-        title: Fauxcabulary.org
+      facebook: #https://developers.facebook.com/docs/plugins/page-plugin/
+        page:   Fauxcabulary
+        title:  Fauxcabulary.org
       facebook2:
         type:  facebook
         page:  Codetopia
-      twitter:
+      twitter:    # https://twitter.com/settings/widgets/new
         name:     GetJaytch
         widgetId: 709112005668503552
-      googleplus:
-        type:  googleplus
-        blah:
+      googleplus: # https://www.kycosoftware.com/code/googleplus-feed-widget-2
+        profileId: 113415901204258128457 # +JosephHall_groundh0g
       tagcloud:
         type:  tagcloud
       author:

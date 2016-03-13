@@ -1,0 +1,3 @@
+{% assign sidebarName = include.sidebarName | default: "googleplus" %}
+{% assign profileId = site.jaytch.layout.sidebars.[sidebarName].profileId %}
+<div class="googleplusfeed">{{ profileId }}</div>
