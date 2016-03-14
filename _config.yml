@@ -112,7 +112,7 @@ jaytch:
           hideForPage: true
           hideForPost: false
         sidebar_right:
-          sidebars: ["posts", "twitter", "googleplus"] # false | ["facebook", "twitter"]
+          sidebars: ["posts", "tagcloud"] # false | ["facebook", "twitter"]
           columns:  3
           hideForPage: true
           hideForPost: false
@@ -137,7 +137,8 @@ jaytch:
       googleplus: # https://www.kycosoftware.com/code/googleplus-feed-widget-2
         profileId: 113415901204258128457 # +JosephHall_groundh0g
       tagcloud:
-        type:  tagcloud
+        title:   "Tag Cloud"
+        maxTags: 20
       author:
         type:  author
       posts:

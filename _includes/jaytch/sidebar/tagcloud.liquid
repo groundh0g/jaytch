@@ -1,0 +1,19 @@
+{% assign sidebarName = include.sidebarName | default: "tagcloud" %}
+{% assign maxTags = site.tags | size %}
+{% assign maxTags = site.jaytch.layout.sidebars.[sidebarName].maxTags | default: maxTags %}
+{% assign title = site.jaytch.layout.sidebars.[sidebarName].title %}
+
+<div class="sidebar">
+
+<div class="postSummary">
+{% if title %}<p class="title">{{ title }}</p>{% endif %}
+<p class="text">
+{% for tag in site.tags limit maxTags %}
+  <span class="tag-cloud-{{ tag | last | size | times: 10 | divided_by: site.tags.size }}">
+  	<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
+  </span>
+{% endfor %}
+</p>
+</div>
+
+</div>
