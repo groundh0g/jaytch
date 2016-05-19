@@ -32,8 +32,13 @@
     
 </div>
 <div class="col-lg-12">
-<hr/>
 
-{% include_relative /templates/blog.md title="Latest News" %}
+    <hr/>
+
+    {% if page.showTitle && page.title %}
+    <h2 style="font-weight:bold;">{{ page.title }}</h2>
+    {% endif %}
+
+    {% include jaytch/snips/post-summary.liquid limit=25 showArchiveLink=true archiveUrl="/archive.html" %}
 
 </div>

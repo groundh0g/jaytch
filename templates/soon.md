@@ -1,6 +1,6 @@
 This is the coming soon page.
 
-![Coming Soon]({{ site.baseurl }}/assets/images/boilerplate/iconDocumentation.png)
+![Coming Soon]({{ site.baseurl }}/templates/images/soon-landing.png)
 
 (Real landing page coming soon. Oh, the irony!)
 

@@ -1,29 +1,23 @@
 ---
-layout: page
+layout: home
 title: The Landing Page
 showTitle: false
 ---
 
-{% case site.jaytch.layout.template.provider %}
+{% comment %}
+    This is the generic landing page (home page) for all layouts. The home page content
+    can be customized in the layout-specific files, found in "./templates".
+    
+    To change to a different layout, edit the "_config.yml". Set "layouts_dir" to the
+    layout you'd like to use. For example:
+    
+        layouts_dir: ./_layouts/blog
+    
+    If you're using the "blog" layout, then you'd edit the home page by editing the 
+    content within "./templates/blog.md".
+{% endcomment %}
 
-{% when 'blog' %}
-{% include_relative templates/blog.md %}
-
-{% when 'book' %}
-{% include_relative templates/book.md %}
-
-{% when 'humor' %}
-{% include_relative templates/humor.md %}
-
-{% when 'project' %}
-{% include_relative templates/project.html %}
-
-{% when 'soon' %}
-{% include_relative templates/soon.md title="Latest News" %}
-
-{% else %}
-{% include_relative templates/blog.md %}
-
-{% endcase %}
+{% assign layout_category = site.layouts_dir | split: '/' | last %}
+{% include_relative templates/{{ layout_category }}.md %}
 
 &nbsp;

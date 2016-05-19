@@ -1,8 +1,9 @@
+{% assign layout_category = site.layouts_dir | split: '/' | last %}
 {% assign context = include.context | default: "left" %}
 {% if context == "left" %}
-    {% assign sidebarConfig = site.jaytch.layout.template[site.jaytch.layout.template.provider].sidebar_left %}
+    {% assign sidebarConfig = site.jaytch.layout.template[layout_category].sidebar_left %}
 {% else %}
-    {% assign sidebarConfig = site.jaytch.layout.template[site.jaytch.layout.template.provider].sidebar_right %}
+    {% assign sidebarConfig = site.jaytch.layout.template[layout_category].sidebar_right %}
 {% endif %}
 
 {% if sidebarConfig.sidebars %}
