@@ -10,7 +10,7 @@
 <p class="text">
 {% for tag in site.tags limit maxTags %}
   <span class="tag-cloud-{{ tag | last | size | times: 10 | divided_by: site.tags.size }}">
-  	<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
+  	<a href="{{ BASE_PATH }}tags#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
   </span>
 {% endfor %}
 </p>

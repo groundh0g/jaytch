@@ -89,7 +89,7 @@ jaytch:
           "The Blog|/blog",
           "The Store|/store"
         ]
-      humor:
+      daily:
         nav_links: [ # the main menu links at the top of every page
           "Archive|/archive",
           "Tags|/tags",
