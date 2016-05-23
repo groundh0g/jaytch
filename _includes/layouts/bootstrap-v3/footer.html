@@ -53,4 +53,12 @@
             $(this).kycoGooglePlusFeed2(id);
         });
     });
+
+    if(typeof renderCountdowns !== 'undefined') {
+        $(document).ready(function(){
+            setInterval(renderCountdowns, 1000);
+        });
+    }
+
+    $(".currentYear").text(new Date().getFullYear());
 </script>

@@ -14,3 +14,6 @@ showTitle: false
 ## Health
 
 * blah.
+* Up and running for {% include jaytch/snips/countdown-inline.liquid datetime=site.time class="countup" %} 
+
+{% include jaytch/snips/countdown-script.liquid %}

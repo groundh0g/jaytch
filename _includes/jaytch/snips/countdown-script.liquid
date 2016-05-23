@@ -1,0 +1,36 @@
+<script type="text/javascript">
+  function renderCountdowns() {
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+
+    var _populateDom = function($this, distance) {
+      $this.find(".valueDays").text(Math.floor(distance / _day));
+      $this.find(".valueHours").text(Math.floor((distance % _day) / _hour));
+      $this.find(".valueMinutes").text(Math.floor((distance % _hour) / _minute));
+      $this.find(".valueSeconds").text(Math.floor((distance % _minute) / _second));
+    }
+
+    $(".countdown").each(function(){
+      var end = new Date($(this).find(".value").text());
+      var now = new Date();
+
+      var distance = end - now;
+      if (distance < 0) {
+          distance = 0;
+          //clearInterval(timer);
+      }
+      _populateDom($(this), distance);
+
+    });
+
+    $(".countup").each(function(){
+      var begin = new Date($(this).find(".value").text());
+      var now = new Date();
+
+      var distance = now - begin;
+      _populateDom($(this), distance);
+    });
+  }
+</script>
