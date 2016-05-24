@@ -1,0 +1,12 @@
+{% assign quoteText = include.quote | default: page.quote | default: "There's no quote on this page. -- Anonymous" %}
+{% assign quoteFloat = include.float | default: "right" %}
+{% assign count = quoteText | split: "--" | size %}
+{% if count > 1 %}
+  {% assign quoteText = quoteText | append: "</span>" | replace: "--", "<br/><span class='author'>&mdash; "" %}
+{% endif %}
+{% assign quoteWidth=include.width | default: "100%" %}
+{% if quoteWidth == "100%" %}
+  <div class="quote"><i class="fa fa-quote-right"></i>&nbsp;{{ quoteText }}</div>
+{% else %}
+  <div class="quote" style="float:{{ quoteFloat }}; width:{{ quoteWidth }}"><i class="fa fa-quote-right"></i>&nbsp;{{ quoteText }}</div>
+{% endif %}

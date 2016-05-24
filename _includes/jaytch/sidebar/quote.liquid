@@ -1,0 +1,6 @@
+{% assign sidebarName = include.sidebarName | default: "quote" %}
+{% assign quote = site.jaytch.layout.sidebars.[sidebarName].quote | default: page.quote %}
+
+{% if quote %}
+  {% include jaytch/snips/quote.liquid quote=quote %}
+{% endif %}

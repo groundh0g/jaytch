@@ -75,7 +75,7 @@ jaytch:
         sidebar_left:
           sidebars: false # false | ["facebook", "twitter", ...]
         sidebar_right:
-          sidebars: ["tagcloud", "twitter"] # false | ["facebook", "twitter", ...]
+          sidebars: ["tagcloud", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
           columns:  3
           hideForHome: false
           hideForPage: false
@@ -110,6 +110,7 @@ jaytch:
             "Configuration Settings Explained|/docs/configuration-settings-explained",
             "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
             "Specifying a 404 Page|/docs/specifying-a-404-page",
+            "Sidebars, Widgets, &amp; Snips|/docs/widgets-and-snips",
             "Using Author Bios|/docs/using-author-bios",
             "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
             "---",
@@ -155,6 +156,18 @@ jaytch:
         type:  author
       posts:
         type:  posts
+      quote:
+        type: quote
+        quote: The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency. -- <a href="http://www.brainyquote.com/quotes/authors/b/bill_gates.html">Bill Gates</a>
+      quote2:
+        type: quote
+        quote: You can design and create, and build the most wonderful place in the world. But it takes people to make the dream a reality. -- <a href="http://www.brainyquote.com/quotes/authors/w/walt_disney.html">Walt Disney</a>
+      quote3:
+        type: quote
+        quote: Women are like teabags. We don't know our true strength until we are in hot water!
+      quote4:
+        type: quote
+        quote: # use the page's quote
 
   authors:
     groundh0g:
