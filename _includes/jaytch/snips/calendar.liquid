@@ -1,0 +1,82 @@
+{% assign lastPost = site.posts | last %}
+{% assign aDateInMonth = include.date | default: lastPost.date | default: site.time | date: "%Y-%m-%d" %}
+
+{% assign monthNumber = aDateInMonth | date: "%m" | plus: 0 %}
+{% assign yearNumber = aDateInMonth | date: "%Y" | plus: 0 %}
+
+{% assign lastDayInMonth = 31 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-31" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% assign lastDayInMonth = 30 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-30" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% assign lastDayInMonth = 29 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-29" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% assign lastDayInMonth = 28 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-28" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% endif %}{% endif %}{% endif %}{% endif %}
+{% assign firstDateInMonth = aDateInMonth | date: "%Y-%m-01" %}
+
+{% assign nextYearNumber = yearNumber %}
+{% assign nextMonthNumber = monthNumber | modulo: 12 | plus: 1 %}{% if nextMonthNumber == 1 %}{% assign nextYearNumber = yearNumber | plus: 1 %}{% endif %}
+{% assign firstDateInNextMonth = "" | append: nextYearNumber | append: "-" | append: nextMonthNumber | append: "-01" | date: "%Y-%m-%d" %}
+
+{% assign prevYearNumber = yearNumber %}
+{% assign prevMonthNumber = monthNumber | minus: 1 %}{% if prevMonthNumber == 0 %}{% assign prevMonthNumber = 12 %}{% assign prevYearNumber = yearNumber | minus: 1 %}{% endif %}
+{% assign firstDateInPrevMonth = "" | append: prevYearNumber | append: "-" | append: prevMonthNumber | append: "-01" | date: "%Y-%m-%d" %}
+{% assign lastDayInPrevMonth = 31 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-31" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% assign lastDayInPrevMonth = 30 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-30" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% assign lastDayInPrevMonth = 29 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-29" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% assign lastDayInPrevMonth = 28 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-28" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% endif %}{% endif %}{% endif %}{% endif %}
+
+{% assign firstDayOfWeek = firstDateInMonth | date: "%a" %}
+{% case firstDayOfWeek %}
+  {% when 'Sun' %}
+    {% assign daysBeforeFirstDay = 0 %}
+  {% when 'Mon' %}
+    {% assign daysBeforeFirstDay = 1 %}
+  {% when 'Tue' %}
+    {% assign daysBeforeFirstDay = 2 %}
+  {% when 'Wed' %}
+    {% assign daysBeforeFirstDay = 3 %}
+  {% when 'Thu' %}
+    {% assign daysBeforeFirstDay = 4 %}
+  {% when 'Fri' %}
+    {% assign daysBeforeFirstDay = 5 %}
+  {% when 'Sat' %}
+    {% assign daysBeforeFirstDay = 6 %}
+{% endcase %}
+
+<div style='text-align:center; width: {{ include.width | default: "50%" }};'>
+<table border="1" cellspacing="0" cellpadding="0" style="width:100%">
+  <tr><td colspan="7"><strong>{{ aDateInMonth | date: "%B %Y" }}</strong></td></tr>
+  <tr><td>SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td>SAT</td></tr>
+
+{% if daysBeforeFirstDay > 0 %}
+  {% assign dayNum = lastDateInPrevMonth | date: "%d" | minus: daysBeforeFirstDay | plus: 1 %}
+  <tr>
+  {% for i in (1..7) %}
+    {% if daysBeforeFirstDay > 0 %}
+      <td style="color:#ccc;">{{ dayNum }}</td>
+    {% else %}
+      <td>{{ dayNum }}</td>
+    {% endif %}
+    {% assign daysBeforeFirstDay = daysBeforeFirstDay | minus: 1 %}
+    {% if daysBeforeFirstDay == 0 %}{% assign dayNum = 1 %}{% else %}{% assign dayNum = dayNum | plus: 1 %}{% endif %}
+  {% endfor %}
+  </tr>
+
+  {% assign dayNum2 = 1 %}
+  {% for i in (1..5) %}
+    <tr>
+    {% for j in (1..7) %}
+      {% if dayNum > lastDayInMonth %}
+        <td style="color:#ccc;">{{ dayNum2 }}</td>
+        {% assign dayNum2 = dayNum2 | plus: 1 %}
+      {% else %}
+        <td>{{ dayNum }}</td>
+      {% endif %}
+      {% assign dayNum = dayNum | plus: 1 %}
+    {% endfor %}
+    </tr>
+    {% if dayNum > lastDayInMonth %}{% break %}{% endif %}
+  {% endfor %}
+{% endif %}
+
+</table>
+</div>

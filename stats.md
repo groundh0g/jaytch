@@ -17,6 +17,11 @@ showTitle: false
 * blah.
 * Up and running for {% include jaytch/snips/countdown-inline.liquid datetime=site.time class="countup" %} 
 
+
+---
+
+{% include jaytch/snips/calendar.liquid %}
+
 ---
 
 {% include jaytch/snips/quote.liquid quote="This is a test. This is only a test. No, really. This is just a test. Pay attention! -- Joe Hall" width="50%" %}
