@@ -21,6 +21,9 @@ div.contributor div.meta {
 
 /* Sidebars */
 
+div.sidebar-left { background-color: #f7f7f7; }
+div.sidebar-left hr { height: 2px; border-color: #888; }
+
 div.sidebar {
     color: #888;
 }

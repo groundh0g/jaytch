@@ -89,13 +89,30 @@ jaytch:
           "The Blog|/blog",
           "The Store|/store"
         ]
+
       daily:
+        title: Fauxcabulary.org
+        tagline: Fake definitions. Real funny.
+        nav_inverse: true
         nav_links: [ # the main menu links at the top of every page
           "Archive|/archive",
           "Tags|/tags",
           "Gallery|/gallery",
           "Commer¢e|/store"
         ]
+        sidebar_left:
+          sidebars: ["quote", "custom", "tagcloud"] # false | ["facebook", "twitter", ...]
+          columns:  3
+          hideForHome: false
+          hideForPage: true
+          hideForPost: true
+        sidebar_right:
+          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+          columns:  3
+          hideForHome: true
+          hideForPage: false
+          hideForPost: false
+
       project:
         title: BYRD
         tagline: Give'm the BYRD!
@@ -129,6 +146,7 @@ jaytch:
           hideForHome: true
           hideForPage: true
           hideForPost: false
+
       soon:
         nav_links: [ # the main menu links at the top of every page
           "Blog &amp; News|/blog",
@@ -164,9 +182,9 @@ jaytch:
         category: # default is all
         tag:      # default is all
       quote:
-        title: Business Tech
         type: quote
-        quote: The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency. -- <a href="http://www.brainyquote.com/quotes/authors/b/bill_gates.html">Bill Gates</a>
+        title:
+        quote: # use page's quote
       quote2:
         type: quote
         quote: You can design and create, and build the most wonderful place in the world. But it takes people to make the dream a reality. -- <a href="http://www.brainyquote.com/quotes/authors/w/walt_disney.html">Walt Disney</a>
@@ -185,6 +203,9 @@ jaytch:
         class:    countup
         mode:     inline # block
         datetime: # page.date
+      custom:
+        type: custom
+        path: daily-masthead.md
 
   authors:
     groundh0g:
