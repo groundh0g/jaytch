@@ -38,15 +38,47 @@ The following text describes the available sidebar widgets.
 
 ### [Author]
 
-The author.
+FIXME: Content needed.
 
-### [Calendar]
+### Calendar
 
-The calendar.
+The calendar sidebar widget presents a list of clickable dates that visitors can use to navigate to your posts.
+
+There are many options that you can specify for the widget.
+
+>|arg|||default|
+|-----------|
+|headBGColor|||#000
+|headFGColor|||#fff
+|grayDateBGColor|||#eee
+|grayDateFGColor|||#888
+|postDateBGColor|||#efe
+|width|||100%
+|float|||*none*
+|date|||*last post date*
+
+~~~
+    sidebars:
+>>    calendar:
+>>      date: # date of most recent post
+>>      width: 100%
+      ...
+~~~
 
 ### Countdown
 
-The countdown.
+Generate buzz for your project-to-be with a countdown timer. The following values in `_config.yml` show how it may be used.
+
+~~~
+    sidebars:
+>>    countdown:
+>>      title:    Site Age
+>>      class:    countup
+>>      mode:     inline # (or block)
+>>      datetime: # page.date
+      ...
+~~~
+
 
 ### Facebook
 
@@ -97,11 +129,11 @@ You can include more than one Google+ widget. Just ensure each has a unique name
 
 ### [Meta]
 
-Page or post metadata.
+FIXME: Content needed.
 
-### Posts
+### [Post Summary]
 
-A list of post summaries.
+FIXME: Content needed.
 
 ### Quote
 
@@ -209,15 +241,51 @@ Interchangeable snips - inline or sidebar? eg. Calendar, Countdown, Quote, ...
 
 ## Snips
 
-### [Calendar]
+### Calendar
+
+To include a post calendar within your post or page, use the `calendar.liquid` snip. You can include as many 
+calendars in your text as you like.
+
+~~~
+{{ "{% include" }} jaytch/snips/calendar.liquid width="50%" float="right" %}
+
+This is some text that will appear alongside the calendar. ...
+~~~
+
+---
+
+{% include jaytch/snips/calendar.liquid width="50%" %}
+
+---
+
+There are several options that you can specify for the snip. 
+See the sidebar description for a complete list.
 
 ### Countdown
 
-Banner & Inline
+To include a countdown in your page or post, use the `countdown-banner.liquid` or `countdown-inline.liquid` snip. 
+The only difference between the two is that banner uses div tags, and inline uses span tags. 
+(*FIXME: Really? Use CSS to make tag inline or block!*)
+
+~~~
+Live for {{ "{% include" }} jaytch/snips/countdown.liquid datetime=site.time class="countup" mode="inline" %}.
+~~~
+
+---
+
+This site has been up for {% include jaytch/snips/countdown.liquid datetime=site.time class="countup" mode="inline" %}.
+
+---
+
+The countdown widget supports two modes - countdown and countup.
 
 ### [Meta]
 
-### Post Summary ???
+FIXME: Content needed.
+
+### [Post Summary]
+
+FIXME: Content needed.
 
 ### Quote
 
@@ -229,6 +297,12 @@ text as you like.
 
 This is some text that will appear alongside the quote. Blah. Blah. Blah. ...
 ~~~
+
+---
+
+{% include jaytch/snips/quote.liquid width="50%" quote="When you are courting a nice girl an hour seems like a second. When you sit on a red-hot cinder a second seems like an hour. That's relativity. -- Albert Einstein" %}
+
+---
 
 If you omit the quote in the snip, the value in `page.quote` is used. If you omit the width, the quote will fill the 
 entire width of the page. If you want to float the quote to the left (rather than the right, which is the default),

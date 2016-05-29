@@ -38,6 +38,20 @@ div.sidebar div.postSummary .title small {
 div.sidebar div.postSummary .text {
 }
 
+div.post-content div.postSummary .title {
+    font-size:2.0em;
+    font-weight:bolder;
+}
+
+div.post-content div.postSummary .title small {
+    font-size:0.75em;
+    font-weight:normal;
+    line-height: 5px;
+}
+
+div.post-content div.postSummary .text {
+}
+
 /* Sticky footer styles */
 
 html {

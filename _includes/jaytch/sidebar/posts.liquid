@@ -1,28 +1,24 @@
-{% assign posts = include.posts | default: site.posts %}
-{% assign limit = include.limit | default: 3 %}
-{% assign words = include.words | default: 25 %}
-{% assign showArchiveLink = include.showArchiveLink | default: true %}
-{% assign archiveUrl = include.archiveUrl | default: "/archive" %}
+{% assign sidebarName = include.sidebarName | default: "posts" %}
+{% assign limit = site.jaytch.layout.sidebars.[sidebarName].limit | default: 3 %}
+{% assign words = site.jaytch.layout.sidebars.[sidebarName].words | default: 25 %}
+{% assign showArchiveLink = site.jaytch.layout.sidebars.[sidebarName].showArchiveLink | default: false %}
+{% assign archiveUrl = site.jaytch.layout.sidebars.[sidebarName].archiveUrl | default: "/archive" %}
+{% assign showViewPostLink = site.jaytch.layout.sidebars.[sidebarName].showViewPostLink | default: false %}
+{% assign category = site.jaytch.layout.sidebars.[sidebarName].category %}
+{% assign tag = site.jaytch.layout.sidebars.[sidebarName].tag %}
+{% assign title = site.jaytch.layout.sidebars.[sidebarName].title %}
 
-<div class="sidebar">
-
-{% for post in posts limit limit %}
-
-<div class="postSummary">
-<p class="title">{{ post.title }}<br/><small><a href="{{ site.baseurl }}{{ post.url }}">{{ post.date | date: "%B %e, %Y" }}</a></small></p>
-<p class="text">{{ post.content | strip_html | truncatewords: words }}</p>
-</div>
-
-{% endfor %}
-
-{% if showArchiveLink %}
-
-<div class="postSummary">
-<p class="title">Archive</p>
-
-<p class="text">The most recent {% if posts.size > limit %}{{ limit }}{% else %}{{ posts.size }}{% endif %} posts are shown above. <a href="{{ site.baseurl }}{{ archiveUrl }}">Click here</a> to view the archive.</p>
-</div>
-
+{% if category %}
+  {% assign posts = site.categories[category] %}
+{% elsif tag %}
+  {% assign posts = site.tags[tag] %}
+{% else %}
+  {% assign posts = site.posts %}
 {% endif %}
 
+<div class="sidebar">
+  {% if title %}<p class="title">{{ title }}</p>{% endif %}
+  {% include jaytch/snips/posts.liquid limit=limit words=words showArchiveLink=showArchiveLink archiveUrl=archiveUrl posts=posts showViewPostLink=showViewPostLink %}
 </div>
+
+{% if posts | size %}{% assign rendered=true %}{% endif%}

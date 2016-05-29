@@ -1,6 +1,15 @@
 {% assign sidebarName = include.sidebarName | default: "quote" %}
 {% assign quote = site.jaytch.layout.sidebars.[sidebarName].quote | default: page.quote %}
+{% assign title = site.jaytch.layout.sidebars.[sidebarName].title %}
 
 {% if quote %}
-  {% include jaytch/snips/quote.liquid quote=quote %}
+  <div class="sidebar">
+    <div class="postSummary">
+      {% if title %}<p class="title">{{ title }}</p>{% endif %}
+      <p class="text">
+        {% include jaytch/snips/quote.liquid quote=quote %}
+        {% assign rendered=true %}
+      </p>
+    </div>
+  </div>
 {% endif %}

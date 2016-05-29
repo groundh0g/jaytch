@@ -15,8 +15,12 @@ showTitle: false
 ## Health
 
 * blah.
-* Up and running for {% include jaytch/snips/countdown-inline.liquid datetime=site.time class="countup" %} 
+* Up and running for {% include jaytch/snips/countdown.liquid datetime=site.time class="countup" %} 
 
+
+---
+
+{% include jaytch/snips/calendar.liquid width="50%" %}
 
 ---
 
@@ -26,5 +30,3 @@ showTitle: false
 
 {% include jaytch/snips/quote.liquid quote="This is a test. This is only a test. No, really. This is just a test. Pay attention! -- Joe Hall" width="50%" %}
 {% include jaytch/snips/quote.liquid %}
-
-{% include jaytch/snips/countdown-script.liquid %}

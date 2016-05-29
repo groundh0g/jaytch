@@ -75,7 +75,7 @@ jaytch:
         sidebar_left:
           sidebars: false # false | ["facebook", "twitter", ...]
         sidebar_right:
-          sidebars: ["tagcloud", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
           columns:  3
           hideForHome: false
           hideForPage: false
@@ -156,7 +156,15 @@ jaytch:
         type:  author
       posts:
         type:  posts
+        limit: # default 3
+        words: # default 15
+        showViewPostLink: false
+        showArchiveLink: false
+        archiveUrl: "/archive"
+        category: # default is all
+        tag:      # default is all
       quote:
+        title: Business Tech
         type: quote
         quote: The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency. -- <a href="http://www.brainyquote.com/quotes/authors/b/bill_gates.html">Bill Gates</a>
       quote2:
@@ -168,6 +176,15 @@ jaytch:
       quote4:
         type: quote
         quote: # use the page's quote
+      calendar:
+        title: History ...
+        date:  # date of most recent post
+        width: 100%
+      countdown:
+        title:    Site Age
+        class:    countup
+        mode:     inline # block
+        datetime: # page.date
 
   authors:
     groundh0g:
