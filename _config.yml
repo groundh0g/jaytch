@@ -8,7 +8,6 @@
 # Site settings
 title: Jaytch!             # overridden in  jaytch.title, but some other templates may use this
 tagline: The Jekyll Helper # overridden in  jaytch.tagline, but some other templates may use this
-email: your-email@domain.com # overridden in  jaytch.authors, but some other templates may use this
 description: > # overridden in  jaytch.description, but some other templates may use this
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -16,10 +15,16 @@ description: > # overridden in  jaytch.description, but some other templates may
 
 twitter_username: groundh0g # overridden in  jaytch.authors, but some other templates may use this
 github_username:  groundh0g # overridden in  jaytch.authors, but some other templates may use this
+email: hello@jaytch.org     # overridden in  jaytch.authors, but some other templates may use this
 
+# The base hostname & protocol for your site ...
+#   If hosted as Github Pages user, url: "http://USERNAME.github.io" # branch master
+#   If hosted as Github Pages organization, url: "http://ORGNAME.github.io" # branch master
+#   If hosted as Github Pages project of a user, url: "http://USERNAME.github.io/PROJNAME" # branch gh-pages
+#   If hosted as Github Pages project of an organization, url: "http://ORGNAME.github.io/PROJNAME" # branch gh-pages
+#   If hosted on a custom domain (has a CNAME file), url: "http://DOMAIN.com"
+url: "http://jaytch.org"
 baseurl: "" # the subpath of your site, e.g. /blog
-# FIXME: url: "http://groundh0g.github.io" # the base hostname & protocol for your site
-url: "http://jaytch.org" # the base hostname & protocol for your site
 
 layouts_dir: ./_layouts/blog # valid values are:
       #    blog       - what 99% of folks will use
@@ -60,102 +65,118 @@ jaytch:
     customcss: custom.css   # loaded after theme css files
     customjs:  custom.js    # loaded after theme js files
     framework: bootstrap-v3 # default | bootstrap-v3
-    theme: default            # When used by bootstrap-v3, valid values are:
-                              #    default | cerulean | cosmo | cyborg |
-                              #    darkly | flatly | journal | lumen | paper |
-                              #    readable | sandstone | simplex | slate |
-                              #    spacelab | superhero | united | yeti
-    template: # template is determined by site.layouts_dir (eg. blog, project, book, ...)
-      blog:
-        nav_links: [ # the main menu links at the top of every page
-          "Archive|/archive",
-          "Categories|/categories",
-          "Tags|/tags",
-          "Contributors|/contributors",
-          "About|/about"
-        ]
-        sidebar_left:
-          sidebars: false # false | ["facebook", "twitter", ...]
-        sidebar_right:
-          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
-          columns:  3
-          hideForHome: false
-          hideForPage: false
-          hideForPost: false
+    theme: default # When used by bootstrap-v3, valid values are:
+                   #    default | cerulean | cosmo | cyborg |
+                   #    darkly | flatly | journal | lumen | paper |
+                   #    readable | sandstone | simplex | slate |
+                   #    spacelab | superhero | united | yeti
+    nav_links: [ # the main menu links at the top of every page
+      "Archive|/archive",
+      "Categories|/categories",
+      "Tags|/tags",
+      "Contributors|/contributors",
+      "About|/about"
+    ]
+    sidebar_left:
+      sidebars: false # false | ["facebook", "twitter", ...]
+    sidebar_right:
+      sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+      columns:  3
+      hideForHome: false
+      hideForPage: false
+      hideForPost: false
 
-      book:
-        nav_links: [ # the main menu links at the top of every page
-          "The Book|/index",
-          "The Author|/author",
-          "The Camps|/contributors",
-          "The Blog|/blog",
-          "The Store|/store"
-        ]
-
-      daily:
-        title: Fauxcabulary.org
-        tagline: Fake definitions. Real funny.
-        nav_inverse: true
-        nav_links: [ # the main menu links at the top of every page
-          "Archive|/archive",
-          "Tags|/tags",
-          "Gallery|/gallery",
-          "Commer¢e|/store"
-        ]
-        sidebar_left:
-          sidebars: ["quote", "custom", "tagcloud"] # false | ["facebook", "twitter", ...]
-          columns:  3
-          hideForHome: false
-          hideForPage: true
-          hideForPost: true
-        sidebar_right:
-          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
-          columns:  3
-          hideForHome: true
-          hideForPage: false
-          hideForPost: false
-
-      project:
-        title: BYRD
-        tagline: Give'm the BYRD!
-        nav_inverse: true
-        nav_links: [ # the main menu links at the top of every page
-          "Blog &amp; News|/blog",
-          "About|/about",
-          "Contributors|/contributors",
-          [ "Documentation", # dropdown label
-            # dropdown menu items:
-            "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
-            "Configuration Settings Explained|/docs/configuration-settings-explained",
-            "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
-            "Specifying a 404 Page|/docs/specifying-a-404-page",
-            "Sidebars, Widgets, &amp; Snips|/docs/widgets-and-snips",
-            "Using Author Bios|/docs/using-author-bios",
-            "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
-            "---",
-            "Frequently Asked Questions|/docs/faqs"
-          ]
-        ]
-        sidebar_left:
-          sidebars: false # false | ["facebook", "twitter", ...]
-          columns:  3
-          hideForHome: true
-          hideForPage: true
-          hideForPost: false
-        sidebar_right:
-          sidebars: ["posts", "tagcloud"] # false | ["facebook", "twitter", ...]
-          columns:  3
-          hideForHome: true
-          hideForPage: true
-          hideForPost: false
-
-      soon:
-        nav_links: [ # the main menu links at the top of every page
-          "Blog &amp; News|/blog",
-          "The Team|/contributors",
-          "About|/about",
-          "Contact Us|/contact"
-        ]
+#    template: # template is determined by site.layouts_dir (eg. blog, project, book, ...)
+#      blog:
+#        nav_links: [ # the main menu links at the top of every page
+#          "Archive|/archive",
+#          "Categories|/categories",
+#          "Tags|/tags",
+#          "Contributors|/contributors",
+#          "About|/about"
+#        ]
+#        sidebar_left:
+#          sidebars: false # false | ["facebook", "twitter", ...]
+#        sidebar_right:
+#          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: false
+#          hideForPage: false
+#          hideForPost: false
+#
+#      book:
+#        nav_links: [ # the main menu links at the top of every page
+#          "The Book|/index",
+#          "The Author|/author",
+#          "The Camps|/contributors",
+#          "The Blog|/blog",
+#          "The Store|/store"
+#        ]
+#
+#      daily:
+#        title: Fauxcabulary.org
+#        tagline: Fake definitions. Real funny.
+#        nav_inverse: true
+#        nav_links: [ # the main menu links at the top of every page
+#          "Archive|/archive",
+#          "Tags|/tags",
+#          "Gallery|/gallery",
+#          "Commer¢e|/store"
+#        ]
+#        sidebar_left:
+#          sidebars: ["quote", "custom", "tagcloud"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: false
+#          hideForPage: true
+#          hideForPost: true
+#        sidebar_right:
+#          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: true
+#          hideForPage: false
+#          hideForPost: false
+#
+#      project:
+#        title: BYRD
+#        tagline: Give'm the BYRD!
+#        nav_inverse: true
+#        nav_links: [ # the main menu links at the top of every page
+#          "Blog &amp; News|/blog",
+#          "About|/about",
+#          "Contributors|/contributors",
+#          [ "Documentation", # dropdown label
+#            # dropdown menu items:
+#            "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
+#            "Configuration Settings Explained|/docs/configuration-settings-explained",
+#            "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
+#            "Specifying a 404 Page|/docs/specifying-a-404-page",
+#            "Sidebars, Widgets, &amp; Snips|/docs/widgets-and-snips",
+#            "Using Author Bios|/docs/using-author-bios",
+#            "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
+#            "---",
+#            "Frequently Asked Questions|/docs/faqs"
+#          ]
+#        ]
+#        sidebar_left:
+#          sidebars: false # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: true
+#          hideForPage: true
+#          hideForPost: false
+#        sidebar_right:
+#          sidebars: ["posts", "tagcloud"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: true
+#          hideForPage: true
+#          hideForPost: false
+#
+#      soon:
+#        nav_links: [ # the main menu links at the top of every page
+#          "Blog &amp; News|/blog",
+#          "The Team|/contributors",
+#          "About|/about",
+#          "Contact Us|/contact"
+#        ]
 
     sidebars:
       facebook: #https://developers.facebook.com/docs/plugins/page-plugin/
@@ -209,7 +230,7 @@ jaytch:
         type: custom
         path: daily-masthead.md
 
-  authors:
+  contributorBios:
     groundh0g:
       name:       Joseph Hall
       alias:      groundh0g

@@ -4,7 +4,7 @@ title: Contributors
 ---
 
 <div class="contributors">
-{% for author in site.jaytch.authors %}
+{% for author in site.jaytch.contributorBios %}
     {% if author[1].showInList != false %}
     <div class="contributor">
         <img src="{{ site.baseurl }}/assets/{{ author[1].image }}" alt="author[1].name" />
@@ -18,15 +18,15 @@ title: Contributors
             <p>{{ author[1].bio | default: "No bio specified."}}</p>
             <p>Social: 
                 {% assign hasSocialMediaIcon=false %}
-                {% if author[1].twitter %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://twitter.com/{{ author[1].twitter }}"><i class="fa fa-twitter"></i>&nbsp;@{{ author[1].twitter }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].github %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://github.com/{{ author[1].github }}"><i class="fa fa-github"></i>&nbsp;@{{ author[1].github }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].facebook %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://facebook.com/{{ author[1].facebook }}"><i class="fa fa-facebook"></i>&nbsp;{{ author[1].facebook }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].youtube %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://youtube.com/{{ author[1].youtube }}"><i class="fa fa-youtube"></i>&nbsp;{{ author[1].youtube }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].deviant %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://deviantart.com/{{ author[1].deviant }}"><i class="fa fa-deviantart"></i>&nbsp;{{ author[1].deviant }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].instagram %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://instagram.com/{{ author[1].instagram }}"><i class="fa fa-instagram"></i>&nbsp;{{ author[1].instagram }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].googleplus %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://googleplus.com/{{ author[1].googleplus }}"><i class="fa fa-google-plus"></i>&nbsp;{{ author[1].googleplus }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].linkedin %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://linkedin.com/in/{{ author[1].linkedin }}"><i class="fa fa-linkedin"></i>&nbsp;{{ author[1].linkedin }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
-                {% if author[1].pinterest %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://pinterest.com/{{ author[1].pinterest }}"><i class="fa fa-pinterest"></i>&nbsp;{{ author[1].pinterest }}</a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].twitter %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://twitter.com/{{ author[1].twitter }}"><span style="white-space:nowrap;"><i class="fa fa-twitter"></i> @{{ author[1].twitter }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].github %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://github.com/{{ author[1].github }}"><span style="white-space:nowrap;"><i class="fa fa-github"></i> @{{ author[1].github }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].facebook %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://facebook.com/{{ author[1].facebook }}"><span style="white-space:nowrap;"><i class="fa fa-facebook"></i> {{ author[1].facebook }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].youtube %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://youtube.com/{{ author[1].youtube }}"><span style="white-space:nowrap;"><i class="fa fa-youtube"></i> {{ author[1].youtube }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].deviant %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://deviantart.com/{{ author[1].deviant }}"><span style="white-space:nowrap;"><i class="fa fa-deviantart"></i> {{ author[1].deviant }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].instagram %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://instagram.com/{{ author[1].instagram }}"><span style="white-space:nowrap;"><i class="fa fa-instagram"></i> {{ author[1].instagram }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].googleplus %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://googleplus.com/{{ author[1].googleplus }}"><span style="white-space:nowrap;"><i class="fa fa-google-plus"></i> {{ author[1].googleplus }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].linkedin %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://linkedin.com/in/{{ author[1].linkedin }}"><span style="white-space:nowrap;"><i class="fa fa-linkedin"></i> {{ author[1].linkedin }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
+                {% if author[1].pinterest %}{% if hasSocialMediaIcon %} | {% endif %}<a target="_blank" href="http://pinterest.com/{{ author[1].pinterest }}"><span style="white-space:nowrap;"><i class="fa fa-pinterest"></i> {{ author[1].pinterest }}</span></a>{% assign hasSocialMediaIcon=true %}{% endif %}
                 {% unless hasSocialMediaIcon %}No links specified.{% endunless %}
             </p>
         </div>
