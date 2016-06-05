@@ -7,9 +7,14 @@
   <div class="postSummary">
   {% if title %}<p class="title">{{ title }}</p>{% endif %}
   <p class="text">
-  {% for tag in site.tags limit maxTags %}
-    <span class="tag-cloud-{{ tag | last | size | times: 10 | divided_by: site.tags.size }}">
-      <a href="{{ BASE_PATH }}tags#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
+  {% assign maxSize = 1 %}
+  {% for tag in site.tags limit: maxTags %}
+    {% assign temp = tag | last | size %}
+    {% if temp > maxSize %}{% assign maxSize = temp %}{% endif %}
+  {% endfor %}
+  {% for tag in site.tags limit: maxTags %}
+    <span class="tag-cloud-{{ tag | last | size | times: 10 | divided_by: maxSize }}">
+      <a href="{{ site.baseurl }}tags#{{ tag | first | slugify }}-ref">{{ tag | first }}</a>
     </span>
   {% endfor %}
   </p>

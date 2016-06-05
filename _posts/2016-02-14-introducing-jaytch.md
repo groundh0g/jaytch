@@ -2,7 +2,7 @@
 layout: post
 title:  "Introducing Jaytch!"
 categories: news
-tags: jekyll, bootstrap
+tags: jekyll bootstrap
 ---
 
 I posted the following to the [plusjade/jekyll-bootstrap](https://github.com/plusjade/jekyll-bootstrap/issues/298) issues after GitHub Pages upgraded to Jekyll 3.x, which broke existing sites. It's a good summary of what Jaytch is.

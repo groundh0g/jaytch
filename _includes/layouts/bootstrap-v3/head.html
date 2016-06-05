@@ -11,7 +11,11 @@
 
     <title>{{ page.title | default: site.title }}</title>
 
-    <script type="text/javascript">var BASE_URL = "{{ site.baseurl }}";</script>
+    <script type="text/javascript">
+        // FIXME: use BASE_PATH everywhere.
+        var BASE_URL = "{{ site.baseurl }}";
+        var BASE_PATH = "{{ site.baseurl }}";
+    </script>
 
     {% if site.jaytch.layout.minified %}
         <!-- Bootstrap core CSS -->
@@ -49,6 +53,9 @@
     <!-- Custom styles for this template -->
     {% if site.jaytch.layout.customcss %}
         <link href="{% include jaytch/asset-path.liquid file=site.jaytch.layout.customcss %}" rel="stylesheet">
+    {% endif %}
+    {% if page.path contains "gallery.html" or page.path contains "store.html" %}
+        <link href="{{ site.baseurl }}/assets/FullWidthImageSlider/css/component.css" rel="stylesheet">
     {% endif %}
 
 </head>

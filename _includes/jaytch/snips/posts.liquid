@@ -5,7 +5,7 @@
 {% assign showArchiveLink = include.showArchiveLink %}
 {% assign archiveUrl = include.archiveUrl | default: "/archive" %}
 
-{% for post in posts limit limit %}
+{% for post in posts limit: limit %}
   <div class="postSummary">
     <p class="title">{{ post.title }}<br/><small><a href="{{ site.baseurl }}{{ post.url }}">{{ post.date | date: "%B %e, %Y" }}</a></small></p>
     <p class="text">{{ post.content | strip_html | truncatewords: words }}</p>

@@ -1,11 +1,14 @@
 {% assign layout_category = site.layouts_dir | split: '/' | last %}
-{% assign sidebar_left = page.sidebar_left | default: site.jaytch.layout.template[layout_category].sidebar_left %}
-{% assign sidebar_right = page.sidebar_right | default: site.jaytch.layout.template[layout_category].sidebar_right %}
+{% assign sidebar_left = site.jaytch.layout.template[layout_category].sidebar_left %}
+{% assign sidebar_right = site.jaytch.layout.template[layout_category].sidebar_right %}
 {% assign leftCols  = sidebar_left.columns | default: 0 %}
 {% assign rightCols = sidebar_right.columns | default: 0 %}
 
 {% if sidebar_left.sidebars == false %}{% assign leftCols = 0 %}{% endif %}
 {% if sidebar_right.sidebars == false %}{% assign rightCols = 0 %}{% endif %}
+
+{% if page.sidebar_left.sidebars == false %}{% assign leftCols = 0 %}{% endif %}
+{% if page.sidebar_right.sidebars == false %}{% assign rightCols = 0 %}{% endif %}
 
 {% if include.context == "home" %}
     {% if sidebar_left.hideForHome == true %}{% assign leftCols = 0 %}{% endif %}

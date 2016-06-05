@@ -61,5 +61,22 @@
         });
     }
 
+    if(typeof whenGalleryReady !== 'undefined') {
+        $(document).ready(function(){
+            whenGalleryReady();
+        });
+    }
+
+    if(typeof whenDocumentReady !== 'undefined') {
+        $(document).ready(function(){
+            whenDocumentReady();
+        });
+    }
+
     $(".currentYear").text(new Date().getFullYear());
 </script>
+
+{% if page.path contains "gallery.html" or page.path contains "store.html" %}
+  <script src="{{ site.baseurl }}/assets/FullWidthImageSlider/js/modernizr.custom.js"></script>
+  <script src="{{ site.baseurl }}/assets/FullWidthImageSlider/js/jquery.cbpFWSlider.min.js"></script>
+{% endif %}

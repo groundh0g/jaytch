@@ -13,11 +13,13 @@ description: > # overridden in  jaytch.description, but some other templates may
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
+
+twitter_username: groundh0g # overridden in  jaytch.authors, but some other templates may use this
+github_username:  groundh0g # overridden in  jaytch.authors, but some other templates may use this
+
 baseurl: "" # the subpath of your site, e.g. /blog
 # FIXME: url: "http://groundh0g.github.io" # the base hostname & protocol for your site
 url: "http://jaytch.org" # the base hostname & protocol for your site
-twitter_username: groundh0g # overridden in  jaytch.authors, but some other templates may use this
-github_username:  groundh0g # overridden in  jaytch.authors, but some other templates may use this
 
 layouts_dir: ./_layouts/blog # valid values are:
       #    blog       - what 99% of folks will use
