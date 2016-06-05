@@ -72,7 +72,9 @@ $(document).ready(function() {
 	  data: null,
 	  success: function (data) {
         typeaheadHandler = new TypeaheadHandler("txtSearch", data);
-		if(whenSearchTermsReady) { whenSearchTermsReady(); }
+          if(typeof whenSearchTermsReady !== 'undefined') {
+                  whenSearchTermsReady();
+          }
 	  }
 	});
 });
