@@ -1,0 +1,19 @@
+{% assign sidebarName = include.sidebarName | default: "calendar" %}
+{% assign title = site.jaytch.layout.sidebars.[sidebarName].title %}
+{% assign date = site.jaytch.layout.sidebars.[sidebarName].date %}
+{% assign headBG = site.jaytch.layout.sidebars.[sidebarName].hedBGColor %}
+{% assign headFG = site.jaytch.layout.sidebars.[sidebarName].headFGColor %}
+{% assign grayDateBG = site.jaytch.layout.sidebars.[sidebarName].grayDateBGColor %}
+{% assign grayDateFG = site.jaytch.layout.sidebars.[sidebarName].grayDateFGColor %}
+{% assign postDateBG = site.jaytch.layout.sidebars.[sidebarName].postDateBGColor %}
+{% assign divWidth = site.jaytch.layout.sidebars.[sidebarName].width %}
+
+<div class="sidebar">
+  <div class="postSummary">
+    {% if title %}<p class="title">{{ title }}</p>{% endif %}
+
+    {% include jaytch/snips/calendar.liquid date=date width=divWidth headBGColor=headGB headFGColor=headFG grayDateBGColor=grayDateBG grayDateFGColor=grayDateFG postDateBGColor=postDateBG %}
+  </div>
+</div>
+
+{% assign rendered=true %}

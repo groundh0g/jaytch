@@ -1,0 +1,160 @@
+{% assign headBG = include.headBGColor | default: "#000" %}
+{% assign headFG = include.headFGColor | default: "#fff" %}
+{% assign grayDateBG = include.grayDateBGColor | default: "#eee" %}
+{% assign grayDateFG = include.grayDateFGColor | default: "#888" %}
+{% assign postDateBG = include.postDateBGColor | default: "#efe" %}
+{% assign divWidth = include.width | default: "100%" %}
+
+{% assign floatStyle = "" %}
+{% if include.float %}
+  {% assign floatStyle = "float:" | append: include.float | append: ";" %}
+{% endif %}
+
+{% assign lastPost = site.posts | last %}
+{% assign aDateInMonth = include.date | default: lastPost.date | default: site.time | date: "%Y-%m-%d" %}
+
+{% assign monthNumber = aDateInMonth | date: "%m" | plus: 0 %}
+{% assign yearNumber = aDateInMonth | date: "%Y" | plus: 0 %}
+
+{% assign lastDayInMonth = 31 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-31" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% assign lastDayInMonth = 30 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-30" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% assign lastDayInMonth = 29 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-29" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% assign lastDayInMonth = 28 %}{% assign lastDateInMonth = aDateInMonth | date: "%Y-%m-28" %}{% assign monthNumberTemp = lastDateInMonth | date: "%m" | plus:0 %}{% if monthNumber != monthNumberTemp %}
+{% endif %}{% endif %}{% endif %}{% endif %}
+{% assign firstDateInMonth = aDateInMonth | date: "%Y-%m-01" %}
+
+{% assign nextYearNumber = yearNumber %}
+{% assign nextMonthNumber = monthNumber | modulo: 12 | plus: 1 %}{% if nextMonthNumber == 1 %}{% assign nextYearNumber = yearNumber | plus: 1 %}{% endif %}
+{% assign firstDateInNextMonth = "" | append: nextYearNumber | append: "-" | append: nextMonthNumber | append: "-01" | date: "%Y-%m-%d" %}
+
+{% assign prevYearNumber = yearNumber %}
+{% assign prevMonthNumber = monthNumber | minus: 1 %}{% if prevMonthNumber == 0 %}{% assign prevMonthNumber = 12 %}{% assign prevYearNumber = yearNumber | minus: 1 %}{% endif %}
+{% assign firstDateInPrevMonth = "" | append: prevYearNumber | append: "-" | append: prevMonthNumber | append: "-01" | date: "%Y-%m-%d" %}
+{% assign lastDayInPrevMonth = 31 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-31" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% assign lastDayInPrevMonth = 30 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-30" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% assign lastDayInPrevMonth = 29 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-29" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% assign lastDayInPrevMonth = 28 %}{% assign lastDateInPrevMonth = firstDateInPrevMonth | date: "%Y-%m-28" %}{% assign monthNumberTemp = lastDateInPrevMonth | date: "%m" | plus:0 %}{% if prevMonthNumber != monthNumberTemp %}
+{% endif %}{% endif %}{% endif %}{% endif %}
+
+{% assign LAST_MONTH = lastDateInPrevMonth | date: "%Y-%m" %}
+{% assign THIS_MONTH = aDateInMonth | date: "%Y-%m" %}
+{% assign NEXT_MONTH = firstDateInNextMonth | date: "%Y-%m" %}
+{% assign postsForCalendar = "" %}
+{% if include.links or true %}
+  {% for post in site.posts %}
+    {% assign month = post.date | date: "%Y-%m" %}
+    {% if month == LAST_MONTH or month == THIS_MONTH or month == NEXT_MONTH %}
+      {% assign date = post.date | date: "%Y-%m-%d" %}
+      {% assign postsForCalendar = postsForCalendar | append: date | append: "~" %}
+      {% assign postsForCalendar = postsForCalendar | append: post.url | append: "~" %}
+      {% assign postsForCalendar = postsForCalendar | append: post.title | append: "?" %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% assign postsForCalendar = postsForCalendar | split: "?" %}
+
+{% assign firstDayOfWeek = firstDateInMonth | date: "%a" %}
+{% case firstDayOfWeek %}
+  {% when 'Sun' %}
+    {% assign daysBeforeFirstDay = 0 %}
+  {% when 'Mon' %}
+    {% assign daysBeforeFirstDay = 1 %}
+  {% when 'Tue' %}
+    {% assign daysBeforeFirstDay = 2 %}
+  {% when 'Wed' %}
+    {% assign daysBeforeFirstDay = 3 %}
+  {% when 'Thu' %}
+    {% assign daysBeforeFirstDay = 4 %}
+  {% when 'Fri' %}
+    {% assign daysBeforeFirstDay = 5 %}
+  {% when 'Sat' %}
+    {% assign daysBeforeFirstDay = 6 %}
+{% endcase %}
+
+<div style='text-align:center; width:{{ divWidth }}; {{ floatStyle }}'>
+<table border="1" cellspacing="0" cellpadding="0" style="width:100%">
+  <tr style="background-color:{{ headBG }}; color:{{ headFG }};"><td colspan="7"><strong>{{ aDateInMonth | date: "%B %Y" }}</strong></td></tr>
+  <tr><td>SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td>SAT</td></tr>
+
+{% if daysBeforeFirstDay > 0 %}
+  {% assign dayNum = lastDateInPrevMonth | date: "%d" | minus: daysBeforeFirstDay | plus: 1 %}
+  <tr>
+  {% for i in (1..7) %}
+
+    {% assign currentPostForCalendar = "" %}
+    {% assign url = "" %}{% assign title = "" %}
+    {% assign thisDate = THIS_MONTH %}
+    {% if daysBeforeFirstDay > 0 %}{% assign thisDate = LAST_MONTH %}{% endif %}
+    {% assign thisDate = thisDate | append: "-" | append: dayNum | date: "%Y-%m-%d" %}
+    {% for post in postsForCalendar %}
+      {% assign postDate = post | slice: 0, 10 %}
+      {% if postDate == thisDate %}
+        {% assign currentPostForCalendar = currentPostForCalendar | append: post | append: "?" %}
+        {% assign url = post | split: "~" %}
+        {% assign title = url[2] %}
+        {% assign url = url[1] %}
+      {% endif %}
+    {% endfor %}
+
+    {% if daysBeforeFirstDay > 0 %}
+      {% if url != "" %}
+        <td style="background-color:{{ grayDateBG }}; color:{{ grayDateFG }};"><a href="{{ url }}" title="{{ title }}">{{ dayNum }}</a></td>
+      {% else %}
+        <td style="background-color:{{ grayDateBG }}; color:{{ grayDateFG }};">{{ dayNum }}</td>
+      {% endif %}
+    {% else %}
+      {% if url != ""  %}
+        <td style="background-color:{{ postDateBG }};"><a href="{{ url }}" title="{{ title }}">{{ dayNum }}</a></td>
+      {% else %}
+        <td>{{ dayNum }}</td>
+      {% endif %}
+    {% endif %}
+    {% assign daysBeforeFirstDay = daysBeforeFirstDay | minus: 1 %}
+    {% if daysBeforeFirstDay == 0 %}{% assign dayNum = 1 %}{% else %}{% assign dayNum = dayNum | plus: 1 %}{% endif %}
+  {% endfor %}
+  </tr>
+
+  {% assign dayNum2 = 1 %}
+  {% for i in (1..5) %}
+    <tr>
+    {% for j in (1..7) %}
+
+      {% assign currentPostForCalendar = "" %}
+      {% assign url = "" %}{% assign title = "" %}
+      {% assign thisDate = THIS_MONTH | append: "-" | append: dayNum %}
+      {% if dayNum > lastDayInMonth %}{% assign thisDate = NEXT_MONTH | append: "-" | append: dayNum2 %}{% endif %}
+      {% assign thisDate = thisDate | date: "%Y-%m-%d" %}
+      {% for post in postsForCalendar %}
+        {% assign postDate = post | slice: 0, 10 %}
+        <!-- JOE: {{  postDate }} / {{ thisDate }} -->
+        {% if postDate == thisDate %}
+          {% assign currentPostForCalendar = currentPostForCalendar | append: post | append: "?" %}
+          {% assign url = post | split: "~" %}
+          {% assign title = url[2] %}
+          {% assign url = url[1] %}
+        {% endif %}
+      {% endfor %}
+
+      {% if dayNum > lastDayInMonth %}
+        {% if url != ""  %}
+          <td style="background-color:{{ grayDateBG }}; color:{{ grayDateFG }};"><a href="{{ url }}" title="{{ title }}">{{ dayNum2 }}</a></td>
+        {% else %}
+          <td style="background-color:{{ grayDateBG }}; color:{{ grayDateFG }};">{{ dayNum2 }}</td>
+        {% endif %}
+        {% assign dayNum2 = dayNum2 | plus: 1 %}
+      {% else %}
+        {% if url != ""  %}
+          <td style="background-color:{{ postDateBG }};"><a href="{{ url }}" title="{{ title }}">{{ dayNum }}</a></td>
+        {% else %}
+          <td>{{ dayNum }}</td>
+        {% endif %}
+      {% endif %}
+      {% assign dayNum = dayNum | plus: 1 %}
+    {% endfor %}
+    </tr>
+    {% if dayNum > lastDayInMonth %}{% break %}{% endif %}
+  {% endfor %}
+{% endif %}
+
+</table>
+</div>

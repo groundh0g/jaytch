@@ -1,0 +1,24 @@
+{% assign sidebarName = include.sidebarName | default: "posts" %}
+{% assign limit = site.jaytch.layout.sidebars.[sidebarName].limit | default: 3 %}
+{% assign words = site.jaytch.layout.sidebars.[sidebarName].words | default: 25 %}
+{% assign showArchiveLink = site.jaytch.layout.sidebars.[sidebarName].showArchiveLink | default: false %}
+{% assign archiveUrl = site.jaytch.layout.sidebars.[sidebarName].archiveUrl | default: "/archive" %}
+{% assign showViewPostLink = site.jaytch.layout.sidebars.[sidebarName].showViewPostLink | default: false %}
+{% assign category = site.jaytch.layout.sidebars.[sidebarName].category %}
+{% assign tag = site.jaytch.layout.sidebars.[sidebarName].tag %}
+{% assign title = site.jaytch.layout.sidebars.[sidebarName].title %}
+
+{% if category %}
+  {% assign posts = site.categories[category] %}
+{% elsif tag %}
+  {% assign posts = site.tags[tag] %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+<div class="sidebar">
+  {% if title %}<p class="title">{{ title }}</p>{% endif %}
+  {% include jaytch/snips/posts.liquid limit=limit words=words showArchiveLink=showArchiveLink archiveUrl=archiveUrl posts=posts showViewPostLink=showViewPostLink %}
+</div>
+
+{% if posts | size %}{% assign rendered=true %}{% endif%}

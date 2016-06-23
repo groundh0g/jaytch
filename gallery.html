@@ -1,0 +1,39 @@
+---
+layout: page
+sidebar_left:
+  sidebars: false
+sidebar_right:
+  sidebars: false
+---
+
+<div id="cbp-fwslider" class="cbp-fwslider">
+	<ul>
+	{% for file in site.static_files %}
+		{% if file.path contains "/images/gallery/" and file.path contains ".png" %}
+		<li><a href="{{ site.baseurl }}{{ file.path }}" target="_blank"><img src="{{ site.baseurl }}{{ file.path }}" alt="Fauxcabulary.org"/></a></li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+</div>
+
+<script type="text/javascript">
+	function whenGalleryReady() {
+		/*
+		- how to call the plugin:
+		$( selector ).cbpFWSlider( [options] );
+		- options:
+		{
+			// default transition speed (ms)
+			speed : 500,
+			// default transition easing
+			easing : 'ease'
+		}
+		- destroy:
+		$( selector ).cbpFWSlider( 'destroy' );
+		*/
+		$("#cbp-fwslider").cbpFWSlider({
+			speed: 750,
+			easing: 'ease'
+		});
+	}
+</script>

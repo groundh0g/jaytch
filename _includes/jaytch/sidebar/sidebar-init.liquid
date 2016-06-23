@@ -1,0 +1,28 @@
+{% assign layout_category = site.layouts_dir | split: '/' | last %}
+{% assign sidebar_left = site.jaytch.layout.sidebar_left %}
+{% assign sidebar_right = site.jaytch.layout.sidebar_right %}
+{% assign leftCols  = sidebar_left.columns | default: 0 %}
+{% assign rightCols = sidebar_right.columns | default: 0 %}
+
+{% if sidebar_left.sidebars == false %}{% assign leftCols = 0 %}{% endif %}
+{% if sidebar_right.sidebars == false %}{% assign rightCols = 0 %}{% endif %}
+
+{% if page.sidebar_left.sidebars == false %}{% assign leftCols = 0 %}{% endif %}
+{% if page.sidebar_right.sidebars == false %}{% assign rightCols = 0 %}{% endif %}
+
+{% if include.context == "home" %}
+    {% if sidebar_left.hideForHome == true %}{% assign leftCols = 0 %}{% endif %}
+    {% if sidebar_right.hideForHome == true %}{% assign rightCols = 0 %}{% endif %}
+{% elsif include.context == "page" %}
+    {% if sidebar_left.hideForPage == true %}{% assign leftCols = 0 %}{% endif %}
+    {% if sidebar_right.hideForPage == true %}{% assign rightCols = 0 %}{% endif %}
+{% else %}
+    {% if sidebar_left.hideForPost == true %}{% assign leftCols = 0 %}{% endif %}
+    {% if sidebar_right.hideForPost == true %}{% assign rightCols = 0 %}{% endif %}
+{% endif %}
+
+{% if page.hideSidebars == true %}{% assign leftCols = 0 %}{% assign rightCols = 0 %}{% endif %}
+{% if page.hideSidebarLeft == true %}{% assign leftCols = 0 %}{% endif %}
+{% if page.hideSidebarRight == true %}{% assign rightCols = 0 %}{% endif %}
+
+{% assign contentCols = 12 | minus: leftCols | minus: rightCols %}

@@ -1,0 +1,570 @@
+---
+layout: page
+title: Create a Blog in 5 Minutes
+showTitle: false
+---
+
+<h1>Quick Start Wizard</h1>
+
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>NOTE:</strong> This page not yet implemented. Coming Soon!
+</div>
+
+<p>Jaytch is configured via the `_config.yml` file, found in the root of your site. You can generate the contents of that file using this tool.</p>
+
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><strong>GitHub Repo:</strong>&nbsp;</td>
+        <td>
+            <input id="txtGitHubUrlRepo" type="text" size="70" placeholder="https://github.com/username/repository" />
+            <i class="fa fa-question-circle" title="This field is updated as you enter your information. You can also paste your repo URL here to populate the corresponding fields."></i>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>GitHub Site:</strong>&nbsp;</td>
+        <td>
+            <input id="txtGitHubUrlSite" type="text" size="70" placeholder="https://username.github.io/repository/subdirectory" readonly="true" style="background-color:#ffc;" />
+            <i class="fa fa-question-circle" title="This is where your site will be hosted. This field is updated as you enter your information."></i>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>CNAME URL:</strong>&nbsp;</td>
+        <td>
+            <input id="txtGitHubUrlCName" type="text" size="70" placeholder="CNAME" />
+            <i class="fa fa-question-circle" title="This is the DNS name that will resolve to your site. Unless you've tweaked the CNAME records on your host, ignore this field."></i>
+        </td>
+    </tr>
+</table>
+
+<hr/>
+
+<div id="divWizStep1" style="display:none;">
+    <h3>GitHub Username &amp; Repo</h3>
+    
+    <p>What is your GitHub username (or organization name)? <i class="fa fa-question-circle" title="https://github.com/USERNAME"></i></p>
+    
+    <p style="margin-left:20px;"><input id="txtGitHubUser" type="text" placeholder="username" /> [<strong>required</strong>]</p>
+    
+    <p>What repository hosts this site? <i class="fa fa-question-circle" title="https://github.com/username/REPOSITORY"></i></p>
+    
+    <p style="margin-left:20px;"><input id="txtGitHubRepo" type="text" placeholder="repository" /> [<strong>optional</strong>]</p>
+
+    <p>Will the site be hosted in a subdirectory? <i class="fa fa-question-circle" title="https://github.com/username/repository/BASEURL"></i></p>
+
+    <p style="margin-left:20px;"><input id="txtGitHubBase" type="text" placeholder="subdirectory" /> [<strong>optional</strong>]</p>
+</div>
+
+<div id="divWizStep2" style="display:none;">
+    <h3>Use Cases</h3>
+
+    <p>How do you plan to use the Jaytch source files? [<strong>required</strong>]</p>
+
+    <p style="margin-left:20px;">
+    <span><label><input type="radio" id="chkInitGitUser" name="useCase" value="GitUserPage" /> I want to create a site for my '<span id="lblInitGitHubUser"></span>' account or organization on GitHub.</label><br/></span>
+    <span><label><input type="radio" id="chkInitGitRepo" name="useCase" value="GitRepoPage" /> I want to create a site for my '<span id="lblInitGitHubRepo"></span>' repository on GitHub.</label><br/></span>
+    <span><label><input type="radio" id="chkInitGitFork" name="useCase" value="GitForkRepo" /> I want to fork Jaytch so that I can contribute to its development on GitHub.</label><br/></span>
+    <span><label><input type="radio" id="chkInitRepoAsZip" name="useCase" value="GitRepoAsZip" /> I want to download Jaytch project files.</label><br/></span>
+    </p>
+</div>
+
+<div id="divWizStep3" style="display:none;">
+    <h3>Type of Site</h3>
+
+    <p>What type of site do you want to create? [<strong>required</strong>]</p>
+
+    <div class="optionsForSiteType" style="margin-left:20px; display:none;">
+    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+        <tr>
+            <td style="vertical-align:top;">
+                <span><label><input type="radio" id="chkTypeBlog"    name="siteType" value="Blog" checked="true" /> Blog / News</label><br/></span>
+                <span><label><input type="radio" id="chkTypeBook"    name="siteType" value="Book" /> Book / Novel</label><br/></span>
+                <span><label><input type="radio" id="chkTypeSoon"    name="siteType" value="Soon" /> Coming Soon</label><br/></span>
+                <span><label><input type="radio" id="chkTypeHumor"   name="siteType" value="Humor" /> Humor</label><br/></span>
+                <span><label><input type="radio" id="chkTypeProject" name="siteType" value="Project" /> Project / Product</label><br/></span>
+                <span><label><input type="radio" id="chkTypeWebApp"  name="siteType" value="WebApp" /> Web Application</label><br/></span>
+            </td>
+            <td style="vertical-align:top;">
+                <div class="divTypePreview" id="divTypeBlog" style="display:none;">
+                    <p>A Blog or news site. If you don't know what you want, this is probably it.</p>
+                    <img src="{{ site.baseurl }}/docs/images/type-blog.png" />
+                </div>
+                <div class="divTypePreview" id="divTypeBook" style="display:none;">
+                    <p>A site for your <a href="https://twitter.com/search?q=%23amwriting" target="_blank">#amwriting</a> efforts. Complete with word counts and other stats.</p>
+                    <img src="{{ site.baseurl }}/docs/images/type-book.png" />
+                </div>
+                <div class="divTypePreview" id="divTypeSoon" style="display:none;">
+                    <p>The procrastinator's dream site.</p>
+                    <img src="{{ site.baseurl }}/docs/images/type-soon.png" />
+                </div>
+                <div class="divTypePreview" id="divTypeHumor" style="display:none;">
+                    <p>Similar to blog, but with short, (nearly) daily posts.</p>
+                    <img src="{{ site.baseurl }}/docs/images/type-humor.png" />
+                </div>
+                <div class="divTypePreview" id="divTypeProject" style="display:none;">
+                    <p>A place to showcase your awesome project or product.</p>
+                    <img src="{{ site.baseurl }}/docs/images/type-project.png" />
+                </div>
+                <div class="divTypePreview" id="divTypeWebApp" style="display:none;">
+                    <p>An easy way to wrap your app with landing page and news posts.</p>
+                    <img src="{{ site.baseurl }}/docs/images/type-webapp.png" />
+                </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+    
+    <p class="messageForSiteType" style="display:none;"><em>You selected the '<span class="lblUseCase"></span>' use case. There are no options for that selection. Click 'Next &raquo;' to move on.</em></p>
+</div>
+
+<div id="divWizStep4" style="display:none;">
+    <h3>404 Page</h3>
+
+    <p>What type of 404 page do you want to create? [<strong>required</strong>]</p>
+
+    <div class="optionsForSiteType" style="margin-left:20px; display:none;">
+    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+        <tr>
+            <td style="vertical-align:top;">
+                <span><label><input type="radio" id="chk404Badge"   name="site404" value="Badge"   /> badge</label><br/></span>
+                <span><label><input type="radio" id="chk404Dog"     name="site404" value="Dog"     /> dog</label><br/></span>
+                <span><label><input type="radio" id="chk404Droids"  name="site404" value="Droids"  /> droids</label><br/></span>
+                <span><label><input type="radio" id="chk404Glass"   name="site404" value="Glass"   /> glass</label><br/></span>
+                <span><label><input type="radio" id="chk404Link"    name="site404" value="Link"    /> link</label><br/></span>
+                <span><label><input type="radio" id="chk404Milk"    name="site404" value="Milk"    /> milk</label><br/></span>
+                <span><label><input type="radio" id="chk404Monster" name="site404" value="Monster" /> monster</label><br/></span>
+                <span><label><input type="radio" id="chk404Potty"   name="site404" value="Potty"   /> potty</label><br/></span>
+                <span><label><input type="radio" id="chk404Shrug"   name="site404" value="Shrug"   /> shrug</label><br/></span>
+                <span><label><input type="radio" id="chk404Sticky"  name="site404" value="Sticky"  /> sticky</label><br/></span>
+                <span><label><input type="radio" id="chk404Tweet"   name="site404" value="Tweet"   /> tweet</label><br/></span>
+                <span><label><input type="radio" id="chk404Zork"    name="site404" value="Zork"    /> zork</label><br/></span>
+            </td>
+            <td style="vertical-align:top;">
+                <img class="img404Preview" id="img404Badge"   src="{{ site.baseurl }}/docs/images/404-badge.png" />
+                <img class="img404Preview" id="img404Dog"     src="{{ site.baseurl }}/docs/images/404-dog.png" />
+                <img class="img404Preview" id="img404Droids"  src="{{ site.baseurl }}/docs/images/404-droids.png" />
+                <img class="img404Preview" id="img404Glass"   src="{{ site.baseurl }}/docs/images/404-glass.png" />
+                <img class="img404Preview" id="img404Link"    src="{{ site.baseurl }}/docs/images/404-link.png" />
+                <img class="img404Preview" id="img404Milk"    src="{{ site.baseurl }}/docs/images/404-milk.png" />
+                <img class="img404Preview" id="img404Monster" src="{{ site.baseurl }}/docs/images/404-monster.png" />
+                <img class="img404Preview" id="img404Potty"   src="{{ site.baseurl }}/docs/images/404-potty.png" />
+                <img class="img404Preview" id="img404Shrug"   src="{{ site.baseurl }}/docs/images/404-shrug.png" />
+                <img class="img404Preview" id="img404Sticky"  src="{{ site.baseurl }}/docs/images/404-sticky.png" />
+                <img class="img404Preview" id="img404Tweet"   src="{{ site.baseurl }}/docs/images/404-tweet.png" />
+                <img class="img404Preview" id="img404Zork"    src="{{ site.baseurl }}/docs/images/404-zork.png" />
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <p class="messageForSiteType" style="display:none;"><em>You selected the '<span class="lblUseCase"></span>' use case. There are no options for that selection. Click 'Next &raquo;' to move on.</em></p>
+</div>
+
+<div id="divWizStep5" style="display:none;">
+    <h3>Site Theme</h3>
+
+    <p>Which theme do you want to use? [<strong>required</strong>]</p>
+
+    <div class="optionsForSiteType" style="margin-left:20px; display:none;">
+    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+        <tr>
+            <td style="vertical-align:top;">
+                <span><label><input type="radio" id="chkThemeCerulean" name="siteTheme" value="Cerulean" /> cerulean</label><br/></span>
+                <span><label><input type="radio" id="chkThemeCosmo" name="siteTheme" value="Cosmo" /> cosmo</label><br/></span>
+                <span><label><input type="radio" id="chkThemeCyborg" name="siteTheme" value="Cyborg" /> cyborg</label><br/></span>
+                <span><label><input type="radio" id="chkThemeDarkly" name="siteTheme" value="Darkly" /> darkly</label><br/></span>
+                <!--<span><label><input type="radio" id="chkThemeDefault" name="siteTheme" value="Default" /> default</label><br/></span>-->
+                <span><label><input type="radio" id="chkThemeFlatly" name="siteTheme" value="Flatly" /> flatly</label><br/></span>
+                <span><label><input type="radio" id="chkThemeJournal" name="siteTheme" value="Journal" /> journal</label><br/></span>
+                <span><label><input type="radio" id="chkThemeLumen" name="siteTheme" value="Lumen" /> lumen</label><br/></span>
+                <span><label><input type="radio" id="chkThemePaper" name="siteTheme" value="Paper" /> paper</label><br/></span>
+                <span><label><input type="radio" id="chkThemeReadable" name="siteTheme" value="Readable" /> readable</label><br/></span>
+                <span><label><input type="radio" id="chkThemeSandstone" name="siteTheme" value="Sandstone" /> sandstone</label><br/></span>
+                <span><label><input type="radio" id="chkThemeSimplex" name="siteTheme" value="Simplex" /> simplex</label><br/></span>
+                <span><label><input type="radio" id="chkThemeSlate" name="siteTheme" value="Slate" /> slate</label><br/></span>
+                <span><label><input type="radio" id="chkThemeSpacelab" name="siteTheme" value="Spacelab" /> spacelab</label><br/></span>
+                <span><label><input type="radio" id="chkThemeSuperhero" name="siteTheme" value="Superhero" /> superhero</label><br/></span>
+                <span><label><input type="radio" id="chkThemeUnited" name="siteTheme" value="United" /> united</label><br/></span>
+                <span><label><input type="radio" id="chkThemeYeti" name="siteTheme" value="Yeti" /> yeti</label><br/></span>
+            </td>
+            <td style="vertical-align:top;">
+                <img class="imgThemePreview" id="imgThemeCerulean"  src="{{ site.baseurl }}/docs/images/theme-cerulean.png" />
+                <img class="imgThemePreview" id="imgThemeCosmo"  src="{{ site.baseurl }}/docs/images/theme-cosmo.png" />
+                <img class="imgThemePreview" id="imgThemeCyborg"  src="{{ site.baseurl }}/docs/images/theme-cyborg.png" />
+                <img class="imgThemePreview" id="imgThemeDarkly"  src="{{ site.baseurl }}/docs/images/theme-darkly.png" />
+                <!--<img class="imgThemePreview" id="imgThemeDefault"  src="{{ site.baseurl }}/docs/images/theme-default.png" />-->
+                <img class="imgThemePreview" id="imgThemeFlatly"  src="{{ site.baseurl }}/docs/images/theme-flatly.png" />
+                <img class="imgThemePreview" id="imgThemeJournal"  src="{{ site.baseurl }}/docs/images/theme-journal.png" />
+                <img class="imgThemePreview" id="imgThemeLumen"  src="{{ site.baseurl }}/docs/images/theme-lumen.png" />
+                <img class="imgThemePreview" id="imgThemePaper"  src="{{ site.baseurl }}/docs/images/theme-paper.png" />
+                <img class="imgThemePreview" id="imgThemeReadable"  src="{{ site.baseurl }}/docs/images/theme-readable.png" />
+                <img class="imgThemePreview" id="imgThemeSandstone"  src="{{ site.baseurl }}/docs/images/theme-sandstone.png" />
+                <img class="imgThemePreview" id="imgThemeSimplex"  src="{{ site.baseurl }}/docs/images/theme-simplex.png" />
+                <img class="imgThemePreview" id="imgThemeSlate"  src="{{ site.baseurl }}/docs/images/theme-slate.png" />
+                <img class="imgThemePreview" id="imgThemeSpacelab"  src="{{ site.baseurl }}/docs/images/theme-spacelab.png" />
+                <img class="imgThemePreview" id="imgThemeSuperhero"  src="{{ site.baseurl }}/docs/images/theme-superhero.png" />
+                <img class="imgThemePreview" id="imgThemeUnited"  src="{{ site.baseurl }}/docs/images/theme-united.png" />
+                <img class="imgThemePreview" id="imgThemeYeti"  src="{{ site.baseurl }}/docs/images/theme-yeti.png" />
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <p class="messageForSiteType" style="display:none;"><em>You selected the '<span class="lblUseCase"></span>' use case. There are no options for that selection. Click 'Finish' to move on.</em></p>
+</div>
+
+<div id="divWizFinished" style="display:none;">
+    <h3>We're Done!</h3>
+    
+    <div id="howToInstall">
+        <p>To install Jaytch locally, use these commands.</p>
+        
+        <pre style="background-color:#000; color:#fff; border:0; padding-left:10px;">
+git clone <span class="howToGitUrl">foobar</span>
+git foo bar
+        </pre>
+
+    </div>
+
+    <div id="howToConfigure">
+        <p>Replace the contents of the `_config.yml` file with the following text.</p>
+
+    </div>
+
+    <div id="howToTest">
+        <p>You should be ready to run your site locally now.</p>
+
+    </div>
+
+    <div id="howToEditAndDeploy">
+        <p>Whenever you're ready to publish a new post, or just tweak something, use the following commands to push your changes to the server.</p>
+
+    </div>
+</div>
+
+
+<hr/>
+
+<div id="divWizButtons">
+    <a id="cmdWizPrev" href="#" class="btn btn-primary disabled">&laquo; Previous</a>
+    <a id="cmdWizNext" href="#" class="btn btn-primary">Next &raquo;</a>
+    <a id="cmdWizStep" href="#" class="btn btn-primary-outline disabled">Step <span id="lblWizStep">1</span> of <span id="lblWizStepCount">1</span></a>
+</div>
+
+<script type="text/javascript">
+    var wizValues = { };
+    var whenDocumentReady = function() {
+        var wizStepCount = 0;
+        for(wizStepCount = 0;$("#divWizStep" + (wizStepCount+1)).length; wizStepCount++);
+        $("#lblWizStepCount").text(wizStepCount);
+
+        var wizStepCurrent = function() {
+            var step;
+            for(step = 1; ; step++) {
+                var $div = $("#divWizStep" + step);
+                if($div.length) {
+                    if($div.is(":visible")) {
+                        break;
+                    }
+                } else {
+                    step = 1;
+                    break;
+                }
+            }
+            return step;
+        };
+
+        var wizStepShow = function(index) {
+            var current = wizStepCurrent();
+
+            index = index || (current + 1);
+            if(index > wizStepCount) { index = wizStepCount; }
+            if(index < 0) { index = current + index; }
+
+            for(var i = 1; i <= wizStepCount; i++) {
+                var $div = $("#divWizStep" + i);
+                if(i === index) {
+                    $div.show();
+                } else {
+                    $div.hide();
+                }
+            }
+
+            if(index > 1) {
+                $("#cmdWizPrev").removeClass("disabled");
+            } else {
+                $("#cmdWizPrev").addClass("disabled");
+            }
+
+            if(index < wizStepCount) {
+                $("#cmdWizNext").html("Next &raquo;");
+            } else {
+                $("#cmdWizNext").html("Finish");
+            }
+
+            $("#lblWizStep").text(index);
+
+            var firstWizPage = index === 1;
+            $("#txtGitHubUrlRepo").prop("readonly", !firstWizPage);
+            $("#txtGitHubUrlRepo").css("background-color", firstWizPage ? "#fff" : "#ffc");
+            $("#txtGitHubUrlBase").prop("readonly", !firstWizPage);
+            $("#txtGitHubUrlBase").css("background-color", firstWizPage ? "#fff" : "#ffc");
+            $("#txtGitHubUrlCName").prop("readonly", !firstWizPage);
+            $("#txtGitHubUrlCName").css("background-color", firstWizPage ? "#fff" : "#ffc");
+        };
+
+        wizStepShow(1);
+
+        $("#cmdWizNext").click(function() {
+            var current = wizStepCurrent();
+            switch(current) {
+                // validation for step 1 - github info
+                case 1:
+                    var $user = $("#txtGitHubUser");
+                    var user = $user.val() || "";
+                    if(user) {
+                        $user.css("background-color", "#fff");
+                    } else {
+                        $user.css("background-color", "#fee");
+                        $user.focus();
+                        alert("GitHub Username is a required field.");
+                        return;
+                    }
+                    var repo = $("#txtGitHubRepo").val() || "";
+                    var $chkGitRepo = $("#chkInitGitRepo");
+                    var $lblGitRepo = $chkGitRepo.parent().parent();
+                    if(repo) {
+                        $lblGitRepo.show();
+                    } else {
+                        $chkGitRepo.prop("checked", false);
+                        $lblGitRepo.hide();
+                    }
+                    wizValues["githubUser"] = user;
+                    wizValues["githubRepo"] = repo;
+                    wizValues["githubBase"] = $("#txtGitHubBase").val() || "";
+                    wizValues["githubUrl"]  = $("#txtGitHubUrlRepo").val() || "";
+
+                    $("#lblInitGitHubUser").text(user);
+                    $("#lblInitGitHubRepo").text(repo ? user + "/" + repo : "");
+
+                    var $selected = $("#divWizStep2 input[name=useCase]:checked");
+                    if($selected && $selected.length === 0) {
+                        $("#chkInitGitRepo").prop("checked", repo.length > 0);
+                        $("#chkInitGitUser").prop("checked", repo.length === 0);
+                    }
+                    break;
+
+                // validation for step 2 - the use case
+                case 2:
+                    var $selected = $("#divWizStep2 input[name=useCase]:checked");
+                    if($selected && $selected.length === 1) {
+                        var useCase = $selected.val() || "";
+                        wizValues["useCase"] = useCase;
+                        var showOptionsForSiteType = useCase !== "GitForkRepo";
+                        $("span.lblUseCase").text(useCase);
+                        if(showOptionsForSiteType) {
+                            $("#divWizStep3 .optionsForSiteType").show();
+                            $("#divWizStep3 .messageForSiteType").hide();
+                        } else {
+                            $("#divWizStep3 .optionsForSiteType").hide();
+                            $("#divWizStep3 .messageForSiteType").show();
+                        }
+                        $("#divWizStep3 div.divTypePreview").hide();
+                        var $selType = $("#divWizStep3 input[name=siteType]:checked");
+                        if($selType && $selType.length === 1) {
+                            $("#divType" + $selType.val()).show();
+                        } else if($selType && $selType.length === 0) {
+                            $("#chkTypeBlog").prop("checked", true);
+                            $("#divTypeBlog").show();
+                        }
+                    } else {
+                        alert("Please select a use case.");
+                        return;
+                    }
+                    break;
+
+                // validation for step 3 - the site type
+                case 3:
+                    var $selected = $("#divWizStep3 input[name=siteType]:checked");
+                    var useCase = wizValues["useCase"];
+                    var showOptionsForSiteType = useCase !== "GitForkRepo";
+                    wizValues["siteType"] = "";
+                    if(showOptionsForSiteType) {
+                        $("#divWizStep4 .optionsForSiteType").show();
+                        $("#divWizStep4 .messageForSiteType").hide();
+                    } else {
+                        $("#divWizStep4 .optionsForSiteType").hide();
+                        $("#divWizStep4 .messageForSiteType").show();
+                    }
+                    if(showOptionsForSiteType) {
+                        if($selected && $selected.length === 1) {
+                            wizValues["siteType"] = $selected.val() || "";
+                        } else {
+                            alert("Please select a site type.");
+                            return;
+                        }
+                    }
+                    $("#divWizStep4 img.img404Preview").hide();
+                    var $sel404 = $("#divWizStep4 input[name=site404]:checked");
+                    if($sel404 && $sel404.length === 1) {
+                        $("#img404" + $sel404.val()).show();
+                    } else if($sel404 && $sel404.length === 0) {
+                        $("#chk404Sticky").prop("checked", true);
+                        $("#img404Sticky").show();
+                    }
+                    break;
+
+                // validation for step 4 - the site 404
+                case 4:
+                    var $selected = $("#divWizStep4 input[name=site404]:checked");
+                    var useCase = wizValues["useCase"];
+                    var showOptionsForSiteType = useCase !== "GitForkRepo";
+                    wizValues["site404"] = "";
+                    if(showOptionsForSiteType) {
+                        $("#divWizStep5 .optionsForSiteType").show();
+                        $("#divWizStep5 .messageForSiteType").hide();
+                    } else {
+                        $("#divWizStep5 .optionsForSiteType").hide();
+                        $("#divWizStep5 .messageForSiteType").show();
+                    }
+                    if(showOptionsForSiteType) {
+                        if($selected && $selected.length === 1) {
+                            wizValues["site404"] = $selected.val() || "";
+                        } else {
+                            alert("Please select a site 404 page.");
+                            return;
+                        }
+                    }
+                    $("#divWizStep5 img.imgThemePreview").css("width", "600px");
+                    $("#divWizStep5 img.imgThemePreview").hide();
+                    var $selTheme = $("#divWizStep5 input[name=siteTheme]:checked");
+                    if($selTheme && $selTheme.length === 1) {
+                        $("#imgTheme" + $selTheme.val()).show();
+                    } else if($selTheme && $selTheme.length === 0) {
+                        $("#chkThemeCosmo").prop("checked", true);
+                        $("#imgThemeCosmo").show();
+                    }
+                    break;
+
+                // validation for step 5 - the site theme
+                case 5:
+                    var $selected = $("#divWizStep5 input[name=siteTheme]:checked");
+                    var useCase = wizValues["useCase"];
+                    var showOptionsForSiteType = useCase !== "GitForkRepo";
+                    wizValues["siteTheme"] = "";
+                    if(showOptionsForSiteType) {
+                        if($selected && $selected.length === 1) {
+                            wizValues["siteTheme"] = $selected.val() || "";
+                        } else {
+                            alert("Please select a site theme.");
+                            return;
+                        }
+                    }
+                    break;
+            }
+            
+            if(current === wizStepCount) {
+                // --- Hide Wizard, Show Results
+                $("#divWizStep5").hide();
+                $("#divWizButtons").hide();
+                $("#divWizFinished").show();
+            } else {
+                wizStepShow();
+            }
+        });
+
+        $("#cmdWizPrev").click(function() {
+            wizStepShow(-1);
+            var $selected = $("#divWizStep2 input[name=useCase]:checked");
+            if(wizStepCurrent() === 1 && $selected && $selected.length > 0) {
+                $("#divWizStep2 input[name=useCase]").prop("checked", false);
+            }
+        });
+
+        $("#txtGitHubUrlRepo").keyup(function() {
+            var value = $(this).val(); //.toLowerCase();
+            //$(this).val(value);
+            var regex = /http[s]{0,1}\:\/\/(www\.){0,1}github\.com\//i;
+            var match = value.match(regex);
+            value = value.replace(regex, "");
+            var parts = value.split("/");
+            if(match && parts && parts.length) {
+                var user = parts[0].replace(/\.github.io/i, "");
+                var repo = parts.length > 1 ? parts[1] : "";
+                var base = $("#txtGitHubBase").val() || "";
+                $("#txtGitHubUser").val(user);
+                $("#txtGitHubRepo").val(repo);
+                $("#txtGitHubUrlSite").val("https://" + user + ".github.io/" + repo + (base ? "/" + base : ""));
+            } else {
+                $("#txtGitHubUser").val("");
+                $("#txtGitHubRepo").val("");
+                $("#txtGitHubUrlSite").val("");
+            }
+        });
+        
+        var updateGitHubUserOrRepoOrBase = function() {
+            var $user = $("#txtGitHubUser");
+            var user = $user.val() || "";
+            var repo = $("#txtGitHubRepo").val() || "";
+            var base = $("#txtGitHubBase").val() || "";
+
+            //if(repo) { repo = "/" + repo; }
+            if(user) {
+                $("#txtGitHubUrlRepo").val("https://github.com/" + user + (repo ? "/" + repo : ".github.io"));
+                $("#txtGitHubUrlSite").val("https://" + user + ".github.io/" + repo + (repo && base ? "/" + base : ""));
+                $user.css("background-color", "#fff");
+            } else {
+                $("#txtGitHubUrlRepo").val("");
+                $("#txtGitHubUrlSite").val("");
+                $user.css("background-color", "#fee");
+            }
+        };
+
+        $("#txtGitHubUser").keyup(updateGitHubUserOrRepoOrBase);
+        $("#txtGitHubRepo").keyup(updateGitHubUserOrRepoOrBase);
+        $("#txtGitHubBase").keyup(updateGitHubUserOrRepoOrBase);
+
+        $("#txtGitHubUser").change(function() {
+            $(this).css("background-color", "#fff");
+            $("#lblInitGitHubUser").text($(this).val());
+        });
+        
+        $("#txtGitHubRepo").change(function() {
+            var value = $(this).val();
+            var $option = $("#lblInitGitHubRepo");
+            $option.text(value);
+            if(value) {
+                $option.show();
+            } else {
+                $option.hide();
+            }
+        });
+
+        $("#divWizStep3 input[name=siteType]").change(function() {
+            $("#divWizStep3 div.divTypePreview").hide();
+            var $selType = $("#divWizStep3 input[name=siteType]:checked");
+            if($selType && $selType.length === 1) {
+                $("#divType" + $selType.val()).show();
+            }
+        });
+
+        $("#divWizStep4 input[name=site404]").change(function() {
+            $("#divWizStep4 img.img404Preview").hide();
+            var $sel404 = $("#divWizStep4 input[name=site404]:checked");
+            if($sel404 && $sel404.length === 1) {
+                $("#img404" + $sel404.val()).show();
+            }
+        });
+
+        $("#divWizStep5 input[name=siteTheme]").change(function() {
+            $("#divWizStep5 img.imgThemePreview").css("width", "600px");
+            $("#divWizStep5 img.imgThemePreview").hide();
+            var $selTheme = $("#divWizStep5 input[name=siteTheme]:checked");
+            if($selTheme && $selTheme.length === 1) {
+                $("#imgTheme" + $selTheme.val()).show();
+            }
+        });
+        
+        $("#txtGitHubUser").focus();
+    };
+</script>

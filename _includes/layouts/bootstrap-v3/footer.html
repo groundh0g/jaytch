@@ -1,4 +1,4 @@
-<footer class="footer navbar-default">
+<footer class="footer">
     <div class="container">
         <!--<div class="row">-->
             <!--<div class="col-lg-12 text-center"><h2>My Awesome Footer!</h2></div>-->
@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-md-4">
                 <h3>Just Getting Started?</h3>
-                <p>Check out our documentation for Quick Starts,<br/>
-                    FAQs, and general information on building<br/>
-                    your site and hosting it on GitHub Pages.</p>
+                <p>Check out our documentation for <a href="{{ site.baseurl }}/docs/create-a-blog-in-5-minutes">Quick Start</a>,<br/>
+                    <a href="{{ site.baseurl }}/docs/faqs">FAQs</a>, and general information on building<br/>
+                    your site and hosting it on <a href="{{ site.baseurl }}/docs/hosting-on-github-pages">GitHub Pages</a>.</p>
             </div>
             <div class="col-md-4">
                 <h3>Found a Bug?</h3>
@@ -20,11 +20,11 @@
                 <h3>Feeling Social?</h3>
                 <p>If you'd just like to tell us how awesome we are,<br/>
                     and you're too cheap to buy a round of beers,<br/>
-                    you can ping us on Twitter or Facebook!</p>
+                    you can ping us on <a href="https://twitter.com/GetJaytch">Twitter</a>!</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center"><hr/>Last build on {{ site.time | date: "%A, %B %-d, %Y" }}.</div>
+            <div class="col-md-12 text-center text-muted"><hr/>Last build on {{ site.time | date: "%A, %B %-d, %Y" }}.</div>
         </div>
     </div>
 </footer>
@@ -38,3 +38,45 @@
 
 <!--&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;-->
 <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+
+
+<script src="{{ site.baseurl }}/assets/script/queryString.js"></script>
+{% include jaytch/snips/search-script.liquid %}
+{% include jaytch/snips/countdown-script.liquid %}
+
+<script src="{{ site.baseurl }}/assets/script/googleplusfeed2/jquery.kyco.googleplusfeed2.min.js"></script>
+<script type="text/javascript">
+    // init google plus sidebar widget(s), if any are present
+    $(document).ready(function(){
+        $('.googleplusfeed').each(function(){
+            var id = $(this).text();
+            $(this).text("");
+            $(this).kycoGooglePlusFeed2(id);
+        });
+    });
+
+    if(typeof renderCountdowns !== 'undefined') {
+        $(document).ready(function(){
+            setInterval(renderCountdowns, 1000);
+        });
+    }
+
+    if(typeof whenGalleryReady !== 'undefined') {
+        $(document).ready(function(){
+            whenGalleryReady();
+        });
+    }
+
+    if(typeof whenDocumentReady !== 'undefined') {
+        $(document).ready(function(){
+            whenDocumentReady();
+        });
+    }
+
+    $(".currentYear").text(new Date().getFullYear());
+</script>
+
+{% if page.path contains "gallery.html" or page.path contains "store.html" %}
+  <script src="{{ site.baseurl }}/assets/FullWidthImageSlider/js/modernizr.custom.js"></script>
+  <script src="{{ site.baseurl }}/assets/FullWidthImageSlider/js/jquery.cbpFWSlider.min.js"></script>
+{% endif %}

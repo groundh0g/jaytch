@@ -1,0 +1,20 @@
+{% if site.jaytch.search.title == true or site.jaytch.search.title >= site.posts.size %}
+    {% assign inclTitle = true %}
+{% else %}
+    {% assign inclTitle = false %}
+{% endif %}
+{% if site.jaytch.search.tags == true or site.jaytch.search.tags >= site.posts.size %}
+    {% assign inclTags = true %}
+{% else %}
+    {% assign inclTags = false %}
+{% endif %}
+{% if site.jaytch.search.keywords == true or site.jaytch.search.keywords >= site.posts.size %}
+    {% assign inclKeywords = true %}
+{% else %}
+    {% assign inclKeywords = false %}
+{% endif %}
+{% if site.jaytch.search.excerpt == true or site.jaytch.search.excerpt >= site.posts.size %}
+    {% assign inclExcerpt = true %}
+{% else %}
+    {% assign inclExcerpt = false %}
+{% endif %}

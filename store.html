@@ -1,0 +1,38 @@
+---
+layout: page
+sidebar_left:
+  sidebars: false
+sidebar_right:
+  sidebars: false
+---
+
+<div id="cbp-fwslider" class="cbp-fwslider">
+	<ul>
+		<li><a href="https://leanpub.com/fauxcabulary" target="_blank"><img src="{{ site.baseurl }}/images/digitalAd.png" alt="Fauxcabulary.org Book"/></a></li>
+		<li><a href="http://www.lulu.com/shop/joseph-hall/fauxcabulary/paperback/product-22171375.html" target="_blank"><img src="{{ site.baseurl }}/images/printAd.png" alt="Fauxcabulary.org Book"/></a></li>
+		<li><a href="https://www.stickermule.com/user/1070653014/stickers" target="_blank"><img src="{{ site.baseurl }}/images/stickerAd.png" alt="Fauxcabulary.org Stickers"/></a></li>
+		<li><a href="{{ site.baseurl }}"><img src="{{ site.baseurl }}/images/wwwAd.png" alt="Fauxcabulary.org"/></a></li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	function whenGalleryReady() {
+		/*
+		- how to call the plugin:
+		$( selector ).cbpFWSlider( [options] );
+		- options:
+		{
+			// default transition speed (ms)
+			speed : 500,
+			// default transition easing
+			easing : 'ease'
+		}
+		- destroy:
+		$( selector ).cbpFWSlider( 'destroy' );
+		*/
+		$("#cbp-fwslider").cbpFWSlider({
+			speed: 750,
+			easing: 'ease'
+		});
+	}
+</script>

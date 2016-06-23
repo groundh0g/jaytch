@@ -1,0 +1,16 @@
+{% if site.jaytch.comments.provider and page.comments != false %}
+
+{% case site.jaytch.comments.provider %}
+{% when "disqus" %}
+  {% include jaytch/comments/disqus.liquid %}
+{% when "livefyre" %}
+  {% include jaytch/comments/livefyre.liquid %}
+{% when "intensedebate" %}
+  {% include jaytch/comments/intensedebate.liquid %}
+{% when "facebook" %}
+  {% include jaytch/comments/facebook.liquid %}
+{% when "duoshuo" %}
+  {% include jaytch/comments/duoshuo.liquid %}
+{% endcase %}
+
+{% endif %}

@@ -6,53 +6,235 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
+title: Jaytch!             # overridden in  jaytch.title, but some other templates may use this
+tagline: The Jekyll Helper # overridden in  jaytch.tagline, but some other templates may use this
+description: > # overridden in  jaytch.description, but some other templates may use this
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
+
+twitter_username: groundh0g # overridden in  jaytch.authors, but some other templates may use this
+github_username:  groundh0g # overridden in  jaytch.authors, but some other templates may use this
+email: hello@jaytch.org     # overridden in  jaytch.authors, but some other templates may use this
+
+# The base hostname & protocol for your site ...
+#   If hosted as Github Pages user, url: "http://USERNAME.github.io" # branch master
+#   If hosted as Github Pages organization, url: "http://ORGNAME.github.io" # branch master
+#   If hosted as Github Pages project of a user, url: "http://USERNAME.github.io/PROJNAME" # branch gh-pages
+#   If hosted as Github Pages project of an organization, url: "http://ORGNAME.github.io/PROJNAME" # branch gh-pages
+#   If hosted on a custom domain (has a CNAME file), url: "http://DOMAIN.com"
+url: "http://jaytch.org"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+
+layouts_dir: ./_layouts/blog # valid values are:
+      #    blog       - what 99% of folks will use
+      #    book       - an open-source book
+      #    daily      - a post-a-day site
+      #    project    - a project or product site
+      #    soon       - a "coming soon" site
+      #    webapp     - a web application, wrapped with a blog
 
 # Build settings
 markdown: kramdown
 
+# Jaytch settings
 jaytch:
+  version : 0.1.0
+
   title: Jaytch!             # Your blog or site title.
   tagline: The Jekyll Helper # Your blog or site tagline.
-  page_links: [
-    "Blog &amp; News|/blog/",
-    "About|/about/",
-    "Contributors|/contributors/",
-    [ "Documentation", # dropdown label
-      # dropdown menu items:
-      "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes/",
-      "Hosting on GitHub Pages|/docs/hosting-on-github-pages/",
-      "Using Author Bios|/docs/using-author-bios/",
-      "Layouts vs. Themes|/docs/layouts-vs-themes/",
-      "---",
-      "Frequently Asked Questions|/docs/faqs/"
-    ]
-  ]
+  description: > # An awesome description of your blog or site.
+    A rewite of JekyllBootstrap (plusjade/jekyll-bootstrap) that
+    is built from the ground up to support Jekyll 3.x and Bootstrap 3.x,
+    while targeting the dependencies of GitHub Pages.
+
+  page_404: sticky # badge | dog | droids | glass | link | milk | monster | potty | shrug | sticky | tweet | zork
+  tweetHash:     "jaytch #blogs #OSS" # don't hash first tag
+  tweetShoutOut: "GetJaytch"
+
+  search: # valid values are: true | false | {number}
+    title:     true # always search
+    tags:      true # always search
+    keywords:  true # always search
+    excerpt:   2000 # only search when fewer than 2001 posts
+    inclPages: true # valid values are: true | false
+
   layout:
-    name: bootstrap-v3    # default | bootstrap-v3
-    minified: true        # Use *.min.css and *.min.js, when available.
-    usecdn: false         # Use CDN (content delivery network), when supported.
-    customcss: custom.css # loaded after theme css files
-    customjs:  custom.js  # loaded after theme js files
-    theme: cosmo        # When used by bootstrap-v3, valid values are:
-                          #    none | default | cerulean | cosmo | cyborg |
-                          #    darkly | flatly | journal | lumen | paper |
-                          #    readable | sandstone | simplex | slate |
-                          #    spacelab | superhero | united | yeti
-  authors:
+    minified: true          # Use *.min.css and *.min.js, when available.
+    usecdn: false           # Use CDN (content delivery network), when supported.
+    customcss: custom.css   # loaded after theme css files
+    customjs:  custom.js    # loaded after theme js files
+    framework: bootstrap-v3 # default | bootstrap-v3
+    theme: default # When used by bootstrap-v3, valid values are:
+                   #    default | cerulean | cosmo | cyborg |
+                   #    darkly | flatly | journal | lumen | paper |
+                   #    readable | sandstone | simplex | slate |
+                   #    spacelab | superhero | united | yeti
+    nav_links: [ # the main menu links at the top of every page
+      "Archive|/archive",
+      "Categories|/categories",
+      "Tags|/tags",
+      "Contributors|/contributors",
+      "About|/about"
+    ]
+    sidebar_left:
+      sidebars: false # false | ["facebook", "twitter", ...]
+    sidebar_right:
+      sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+      columns:  3
+      hideForHome: false
+      hideForPage: false
+      hideForPost: false
+
+#    template: # template is determined by site.layouts_dir (eg. blog, project, book, ...)
+#      blog:
+#        nav_links: [ # the main menu links at the top of every page
+#          "Archive|/archive",
+#          "Categories|/categories",
+#          "Tags|/tags",
+#          "Contributors|/contributors",
+#          "About|/about"
+#        ]
+#        sidebar_left:
+#          sidebars: false # false | ["facebook", "twitter", ...]
+#        sidebar_right:
+#          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: false
+#          hideForPage: false
+#          hideForPost: false
+#
+#      book:
+#        nav_links: [ # the main menu links at the top of every page
+#          "The Book|/index",
+#          "The Author|/author",
+#          "The Camps|/contributors",
+#          "The Blog|/blog",
+#          "The Store|/store"
+#        ]
+#
+#      daily:
+#        title: Fauxcabulary.org
+#        tagline: Fake definitions. Real funny.
+#        nav_inverse: true
+#        nav_links: [ # the main menu links at the top of every page
+#          "Archive|/archive",
+#          "Tags|/tags",
+#          "Gallery|/gallery",
+#          "Commer¢e|/store"
+#        ]
+#        sidebar_left:
+#          sidebars: ["quote", "custom", "tagcloud"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: false
+#          hideForPage: true
+#          hideForPost: true
+#        sidebar_right:
+#          sidebars: ["tagcloud", "posts", "calendar", "countdown", "quote", "quote2", "quote3", "quote4", "twitter"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: true
+#          hideForPage: false
+#          hideForPost: false
+#
+#      project:
+#        title: BYRD
+#        tagline: Give'm the BYRD!
+#        nav_inverse: true
+#        nav_links: [ # the main menu links at the top of every page
+#          "Blog &amp; News|/blog",
+#          "About|/about",
+#          "Contributors|/contributors",
+#          [ "Documentation", # dropdown label
+#            # dropdown menu items:
+#            "Create a Blog in 5 Minutes|/docs/create-a-blog-in-5-minutes",
+#            "Configuration Settings Explained|/docs/configuration-settings-explained",
+#            "Frameworks, Themes,  &amp; Templates|/docs/layouts-frameworks-themes-and-templates",
+#            "Specifying a 404 Page|/docs/specifying-a-404-page",
+#            "Sidebars, Widgets, &amp; Snips|/docs/widgets-and-snips",
+#            "Using Author Bios|/docs/using-author-bios",
+#            "Hosting on GitHub Pages|/docs/hosting-on-github-pages",
+#            "---",
+#            "Frequently Asked Questions|/docs/faqs"
+#          ]
+#        ]
+#        sidebar_left:
+#          sidebars: false # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: true
+#          hideForPage: true
+#          hideForPost: false
+#        sidebar_right:
+#          sidebars: ["posts", "tagcloud"] # false | ["facebook", "twitter", ...]
+#          columns:  3
+#          hideForHome: true
+#          hideForPage: true
+#          hideForPost: false
+#
+#      soon:
+#        nav_links: [ # the main menu links at the top of every page
+#          "Blog &amp; News|/blog",
+#          "The Team|/contributors",
+#          "About|/about",
+#          "Contact Us|/contact"
+#        ]
+
+    sidebars:
+      facebook: #https://developers.facebook.com/docs/plugins/page-plugin/
+        page:   Fauxcabulary
+        title:  Fauxcabulary.org
+      facebook2:
+        type:  facebook
+        page:  Codetopia
+      twitter:    # https://twitter.com/settings/widgets/new
+        name:     GetJaytch
+        widgetId: 709112005668503552
+      googleplus: # https://www.kycosoftware.com/code/googleplus-feed-widget-2
+        profileId: 113415901204258128457 # +JosephHall_groundh0g
+      tagcloud:
+        title:   "Tag Cloud"
+        maxTags: 20
+      author:
+        type:  author
+      posts:
+        type:  posts
+        limit: # default 3
+        words: # default 15
+        showViewPostLink: false
+        showArchiveLink: false
+        archiveUrl: "/archive"
+        category: # default is all
+        tag:      # default is all
+      quote:
+        type: quote
+        title:
+        quote: # use page's quote
+      quote2:
+        type: quote
+        quote: You can design and create, and build the most wonderful place in the world. But it takes people to make the dream a reality. -- <a href="http://www.brainyquote.com/quotes/authors/w/walt_disney.html">Walt Disney</a>
+      quote3:
+        type: quote
+        quote: Women are like teabags. We don't know our true strength until we are in hot water!
+      quote4:
+        type: quote
+        quote: # use the page's quote
+      calendar:
+        title: History ...
+        date:  # date of most recent post
+        width: 100%
+      countdown:
+        title:    Site Age
+        class:    countup
+        mode:     inline # block
+        datetime: # page.date
+      custom:
+        type: custom
+        path: daily-masthead.md
+
+  contributorBios:
     groundh0g:
       name:       Joseph Hall
       alias:      groundh0g
-      image:      images/groundh0g.png
+      image:      images/contributors/groundh0g.png
       role:       Programmer / Writer
       bio: > # brief description goes here
         Joe lives with his wife and three daughters in Newnan, Georgia. Every
@@ -67,14 +249,15 @@ jaytch:
       facebook:   groundh0g
       youtube:    groundh0g
       instagram:  groundh0g72
-      googleplus: groundh0g
+      #googleplus: groundh0g
       github:     groundh0g
       deviant:    groundh0g
       linkedin:   groundh0g
+      pinterest:  groundh0g
     plusjade:
       name:       Jade Dominguez
       alias:      plusjade
-      image:      images/plusjade.jpg
+      image:      images/contributors/plusjade.jpg
       role:       Programmer
       bio: > # brief description goes here
         I owe everything I know to the Open Source community so all my work is
@@ -86,3 +269,50 @@ jaytch:
       website:    http://plusjade.com/
       twitter:    plusjade
       github:     plusjade
+    # FIXME: actually use admin alias as default in posts (and pages?)
+    admin:        # the "admin" author alias is reserved, used as default when no author is specified
+      name:       Administrator
+      alias:      admin
+      showInList: true # you can hide this little guy
+      image:      images/contributors/admin.png
+      role:       Filth-Dimensional Being
+      bio: > # brief description goes here
+        The "admin" alias is a reserved account, used as default when no author is specified.<br/>
+        You can hide this account by adding "showInList: false" to the "_config.yml" file.
+      email:      hello@jaytch.org
+      website:    http://jaytch.org/
+      twitter:    GetJaytch
+
+  analytics : # settings for analytics, set 'provider' to the analytics provider you want to use
+    provider : google # Set 'provider' to false to turn analytics off entirely
+    gauges :
+        site_id : 'SITE ID'
+    google :
+        tracking_id : 'UA-123-12'
+    googleLegacy :
+        tracking_id : 'UA-123-12'
+    getclicky :
+      site_id :
+    mixpanel :
+        token : '_MIXPANEL_TOKEN_'
+    baidu :
+        token : '_BAIDU_TOKEN_'
+    piwik :
+        baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
+        idsite : '1'                   # the id of the site on Piwik
+
+  comments : # settings for comments helper, set 'provider' to the comment provider you want to use
+    provider : facebook # Set 'provider' to false to turn commenting off entirely
+    disqus :
+      short_name : myname
+    livefyre :
+      site_id : 123
+    intensedebate :
+      account : 123abc
+    facebook :
+      appid : 123
+      num_posts: 5
+      width: 580
+      colorscheme: light
+    duoshuo :
+      short_name : myname

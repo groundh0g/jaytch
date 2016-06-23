@@ -1,0 +1,15 @@
+{% assign sidebarName = include.sidebarName | default: "countdown" %}
+{% assign mode = site.jaytch.layout.sidebars.[sidebarName].mode %}
+{% assign class = site.jaytch.layout.sidebars.[sidebarName].class %}
+{% assign title = site.jaytch.layout.sidebars.[sidebarName].title %}
+
+<div class="sidebar">
+  <div class="postSummary">
+    <p class="text">
+      {% if title %}<p class="title">{{ title }}</p>{% endif %}
+
+      {% include jaytch/snips/countdown.liquid mode=mode class=class %}
+    </p>
+  </div>
+</div>
+{% assign rendered=true %}

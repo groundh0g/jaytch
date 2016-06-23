@@ -1,0 +1,11 @@
+{% assign sidebarName = include.sidebarName | default: "custom" %}
+{% assign path = site.jaytch.layout.sidebars.[sidebarName].path %}
+
+{% if path %}
+  {% include custom/{{ path }} path=path name=sidebarName %}
+{% endif %}
+
+{% comment %}
+  <!-- No need for HR tag. Caller can specify in their custom file. -->
+  {% assign rendered=true %}
+{% endcomment %}

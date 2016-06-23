@@ -1,0 +1,33 @@
+{% capture jaytchCache %}{% comment %}
+
+  Determine whether or not a given file exists.
+
+  Parameters:
+    file: path to file (ex: "/example/file.png")
+
+  Returns:
+    result: [true|false]
+
+  Examples:
+
+    {% include jaytch/util-file-exists.liquid file="/404.html" %}
+
+    {% if result %}
+        Found "/404.html"!
+    {% else %}
+        Did not find "/404.html".
+    {% endif %}
+
+{% endcomment %}
+
+{% assign result = false %}
+{% if include.file %}
+	{% for static_file in site.static_files %}
+		{% if static_file.path == include.file %}
+			{% assign result = true %}
+			{% break %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{% endcapture %}{% assign jaytchCache = nil %}

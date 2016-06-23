@@ -1,5 +1,6 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+{% assign layout_category = site.layouts_dir | split: '/' | last %}
+<nav class="navbar {% if site.jaytch.layout.template[layout_category].nav_inverse %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -8,14 +9,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/" title="{{ site.jaytch.tagline }}">{{ site.jaytch.title | default: site.title }}</a>
+            <a class="navbar-brand" href="{{ site.baseurl }}/" title="{{ site.jaytch.layout.template[layout_category].tagline | default: site.jaytch.tagline | default: site.tagline }}">{{ site.jaytch.layout.template[layout_category].title | default: site.jaytch.title | default: site.title }}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                {% for pg in site.jaytch.page_links %}
-                    {% include jaytch/is-array.liquid data=pg %}
+                {% assign navLinks = site.jaytch.layout.nav_links %}
+                {% for pg in navLinks %}
+                    {% include jaytch/util-is-array.liquid data=pg %}
                     {% if isArray %}
-                        <li class="dropdown">
+
+                        {% comment %}
+                            Scan sub-pages to see if any are selected.
+                            FIXME: Is there a better way to do this?
+                        {% endcomment %}
+                        {% assign ACTIVE = "" %}
+                        {% for item in pg %}
+                            {% assign pglnk = item | split: "|" %}
+                            {% assign chkActive = page.url | replace: ".html", "" %}
+                            {% if pglnk[1] == chkActive %}{% assign ACTIVE = "active" %}{% break %}{% endif %}
+                        {% endfor %}
+
+                        <li class="dropdown {{ ACTIVE }}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">{{ pg[0] }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -24,21 +38,22 @@
                                         <li role="separator" class="divider"></li>
                                     {% elsif forloop.first == false %}
                                         {% assign pglnk = item | split: "|" %}
-                                        <li><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
+                                        {% assign chkActive = page.url | replace: ".html", "" %}
+                                        {% capture ACTIVE %}{% if pglnk[1] == chkActive %}active{% endif %}{% endcapture %}
+                                        <li class="{{ ACTIVE }}"><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
                                     {% endif %}
                                 {% endfor %}
-                                <!--<li><a href="#">Create a Blog in 10 Minutes</a></li>-->
-                                <!--<li><a href="#">Hosting on GitHub Pages</a></li>-->
-                                <!--<li role="separator" class="divider"></li>-->
-                                <!--<li><a href="#">Frequently Asked Questions</a></li>-->
                             </ul>
                         </li>
                     {% else %}
                         {% assign pglnk = pg | split: "|" %}
-                        <li><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
+                        {% assign chkActive = page.url | replace: ".html", "" %}
+                        {% capture ACTIVE %}{% if pglnk[1] == chkActive %}active{% endif %}{% endcapture %}
+                        <li class="{{ ACTIVE }}"><a href="{{ site.baseurl }}{{ pglnk[1] }}">{{ pglnk[0] }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
+            {% include jaytch/snips/search-ui.liquid %}
         </div><!--/.nav-collapse -->
     </div>
 </nav>

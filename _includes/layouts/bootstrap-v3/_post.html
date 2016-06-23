@@ -1,12 +1,50 @@
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+{% include jaytch/sidebar/sidebar-init.liquid context="post" %}
 
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-        <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-    </header>
+<div class="row">
+    {% if leftCols > 0 %}
+    <div class="sidebar-left col-lg-{{ leftCols }}">
+        {% include jaytch/sidebar/sidebar-ui.liquid context="left" %}
+    </div>
+    {% endif %}
 
-    <div class="post-content" itemprop="articleBody">
-        {{ content }}
+    <div class="main-content col-lg-{{ contentCols }}">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+            <header class="post-header">
+                <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+                <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+            </header>
+
+            <div class="post-content" itemprop="articleBody">
+                {{ content }}
+            </div>
+
+            <br/><br/>
+            <hr>
+            <ul class="pagination">
+                {% if page.previous %}
+                <li class="prev"><a href="{{ site.baseurl }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
+                {% else %}
+                <li class="prev disabled"><a>&larr; Previous</a></li>
+                {% endif %}
+                <li><a href="{{ site.baseurl }}/archive">Archive</a></li>
+                {% if page.next %}
+                <li class="next"><a href="{{ site.baseurl }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
+                {% else %}
+                <li class="next disabled"><a>Next &rarr;</a>
+                    {% endif %}
+            </ul>
+            <hr>
+            {% include jaytch/comments.liquid %}
+
+        </article>
     </div>
 
-</article>
+    {% if rightCols > 0 %}
+    <div class="sidebar-right col-lg-{{ rightCols }}">
+        {% include jaytch/sidebar/sidebar-ui.liquid context="right" %}
+    </div>
+    {% endif %}
+</div>
+
+

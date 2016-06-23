@@ -1,0 +1,60 @@
+---
+layout: page
+title: Search Results
+---
+
+<div id="searchResultsDiv"></div>
+
+<script type="text/javascript">
+    var whenDocumentReady = whenDocumentReady || function() {};
+    var whenSearchTermsReady = function() {
+        var searchText = decodeURIComponent(QueryString["txtSearch"] || "").split("+").join(" ");
+        if(searchText) {
+            $("#txtSearch").val(searchText);
+            $.each(typeaheadHandler.getData(searchText), function(index, post) {
+                var regex = new RegExp(searchText, "gi");
+                var div = $("<div/>");
+                var header = null;
+                var excerpt = null;
+                var tags = null;
+
+                if(post.title) {
+                    var title = $("<div/>").html(post.title).text();
+                    header = $("<h3/>")
+                            .css("font-weight", "bold")
+                            .html(title.replace(regex, "<span class='searchHit'>$&</span>"));
+                } else {
+                    header = $("<h3/>")
+                            .css("font-weight", "bold")
+                            .text("{Title Unknown}");
+                }
+                var date = $("<span/>");
+                if(post.date) {
+                    date = $("<p/>")
+                        .css("font-weight","bold")
+                        .text(new Date(post.date.substr(0,10)).toString().substr(0,15));
+                }
+                if(post.excerpt) {
+                    excerpt = $("<p/>")
+                            .html(post.excerpt.replace(regex, "<span class='searchHit'>$&</span>"));
+                }
+                if(post.tags) {
+                    var tagsText = post.tags.split(",").sort().join(", ");
+                    tags = $("<p/>")
+                            .html("<b>Tags:</b> " + tagsText.replace(regex, "<span class='searchHit'>$&</span>"));
+                }
+                var link = $("<p/>").html("<a href='" + post.url + "'>View " +
+                        (post.isPost ? "Post" : "Page") +
+                        " &raquo;</a>");
+
+                $("#searchResultsDiv").append($("<div/>")
+                        .append(header  || $("<span/>"))
+                        .append(date    || $("<span/>"))
+                        .append(excerpt || $("<span/>"))
+                        .append(tags    || $("<span/>"))
+                        .append(link)
+                );
+            });
+        }
+    }
+</script>
